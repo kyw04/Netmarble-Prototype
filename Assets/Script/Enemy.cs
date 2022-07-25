@@ -14,8 +14,9 @@ public class Enemy : MonoBehaviour
     private void Dead()
     {
         gameObject.layer = 8;
-        gameObject.GetComponent<SpriteRenderer>().enabled = true;
+        gameObject.GetComponent<SpriteRenderer>().enabled = false;
         gameObject.GetComponent<ParticleSystem>().Play();
+        Destroy(this.gameObject, 1.25f);
     }
 
 
