@@ -7,17 +7,18 @@ public class Touch : MonoBehaviour
 {
     public Text touchText;
     public Text inputText;
-    private Camera cam;
+    public Text XYText;
     private Vector2 touch;
     private float sizeY;
+    private float sizeX;
     private bool isRight;
     private int index;
 
     private void Start()
     {
-        cam = Camera.main;
-        sizeY = cam.orthographicSize * 2;
-        sizeY /= 3;
+        sizeY = Screen.height / 3;
+        sizeX = Screen.width / 2;
+        XYText.text = "X : " + sizeX.ToString() + ' ' + Screen.width.ToString() + "\nY : " + sizeY.ToString() + ' ' + Screen.height.ToString();
     }
 
     void Update()
@@ -27,7 +28,7 @@ public class Touch : MonoBehaviour
             touch = Input.GetTouch(0).position;
 
 
-            if (touch.x < 0)
+            if (touch.x > sizeX)
                 isRight = true;
             else
                 isRight = false;
