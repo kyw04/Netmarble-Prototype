@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4317355752472951411}
   - component: {fileID: 4317355752472951408}
-  - component: {fileID: 5322924062158670426}
   - component: {fileID: -5339066749157009870}
   - component: {fileID: -3986027014529040952}
   - component: {fileID: 5926056708580784062}
+  - component: {fileID: 5322924062158670426}
   - component: {fileID: 177124955100540318}
   m_Layer: 7
   m_Name: Circle
@@ -78,8 +78,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_SortingOrder: 11
+  m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -90,19 +90,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5322924062158670426
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4317355752472951409}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5098e87b238c5844d99acd2c2fdb95e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 2
 --- !u!58 &-5339066749157009870
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -4905,6 +4892,25 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!114 &5322924062158670426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4317355752472951409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5098e87b238c5844d99acd2c2fdb95e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spriteRenderer: {fileID: 0}
+  sprites:
+  - {fileID: 21300000, guid: 61ac40b257b3a994f841856ad38b2b6b, type: 3}
+  - {fileID: 21300000, guid: 2ced226d9df062547882002f633ab6ee, type: 3}
+  - {fileID: 21300000, guid: db49e13fa9e16dc44b5ffb6bc43d4235, type: 3}
+  speed: 5
+  isDead: 0
 --- !u!199 &177124955100540318
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -5018,7 +5024,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4660059564936335931}
   serializedVersion: 8
-  lengthInSec: 5
+  lengthInSec: 1
   simulationSpeed: 1.5
   stopAction: 0
   cullingMode: 0
@@ -5083,7 +5089,7 @@ ParticleSystem:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  moveWithTransform: 0
+  moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
   randomSeed: 0

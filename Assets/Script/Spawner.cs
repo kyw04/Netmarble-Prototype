@@ -18,7 +18,7 @@ public class Spawner : MonoBehaviour
         yield return new WaitForSeconds(time);
 
         index = Random.Range(0, pos.Length);
-        GameObject newEnemy = Instantiate(enemy, pos[index].position, pos[index].rotation);
+        GameObject newEnemy = Instantiate(enemy, pos[index].position, Quaternion.identity);
         newEnemy.gameObject.tag = "Line" + index.ToString();
 
         StartCoroutine("Spawn");
