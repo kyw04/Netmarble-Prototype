@@ -2097,7 +2097,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.6
+  m_Radius: 0.8
 --- !u!1 &685551629
 GameObject:
   m_ObjectHideFlags: 0
@@ -3260,6 +3260,7 @@ MonoBehaviour:
   inputText: {fileID: 1976196560}
   XYText: {fileID: 57267243}
   slider: {fileID: 1884834758}
+  perfectRadius: 2.5
 --- !u!50 &1129641191
 Rigidbody2D:
   serializedVersion: 4
@@ -4215,7 +4216,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 0.5
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []

@@ -4906,9 +4906,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _spriteRenderer: {fileID: 0}
   sprites:
-  - {fileID: 21300000, guid: 61ac40b257b3a994f841856ad38b2b6b, type: 3}
-  - {fileID: 21300000, guid: 2ced226d9df062547882002f633ab6ee, type: 3}
-  - {fileID: 21300000, guid: db49e13fa9e16dc44b5ffb6bc43d4235, type: 3}
+  - {fileID: -1029103926, guid: 3eaa0273a4227ea40a1fba4c4f0a1f86, type: 3}
+  - {fileID: -1201682877, guid: 3eaa0273a4227ea40a1fba4c4f0a1f86, type: 3}
+  - {fileID: -1913778368, guid: 3eaa0273a4227ea40a1fba4c4f0a1f86, type: 3}
   speed: 5
   isDead: 0
 --- !u!199 &177124955100540318

@@ -10,17 +10,17 @@ public class Touch : MonoBehaviour
     public Text touchText;
     public Text inputText;
     public Text XYText;
+    public Slider slider;
+    public float perfectRadius;
     private Vector2[] touch = new Vector2[10];
-    private CircleCollider2D _circleColliderChildren;
     private float sizeY;
     private float sizeX;
+    private float errorRange;
     private int index;
-    private float temp = 0.25f;
-    public Slider slider;
+
 
     private void Start()
     {
-        _circleColliderChildren = GetComponentInChildren<CircleCollider2D>();
         sizeY = Screen.height / 3.0f;
         sizeX = Screen.width / 2.0f;
         XYText.text = "X : " + sizeX.ToString() + ' ' + Screen.width.ToString() + "\nY : " + sizeY.ToString() + ' ' + Screen.height.ToString();
@@ -28,7 +28,7 @@ public class Touch : MonoBehaviour
 
     void Update()
     {
-        temp = slider.value + 0.5f;
+        errorRange = slider.value;
         index = -1;
         for (int i = 0; i < Input.touchCount; i++)
         {
@@ -62,27 +62,27 @@ public class Touch : MonoBehaviour
         }
 
         touchText.text = touch[0].ToString();
-        inputText.text = temp.ToString();
+        inputText.text = errorRange.ToString();
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Line" + index) && collision.GetComponent<Enemy>())
+        if (index != -1 && collision.gameObject.CompareTag("Line" + index) && collision.GetComponent<Enemy>())
         {
             Enemy _enemy = collision.GetComponent<Enemy>();
-            Vector3 distance = -collision.transform.position;
-            float temp = Mathf.Sqrt(distance.x * distance.x + distance.y * distance.y);
+            Vector3 direction = -collision.transform.position;
+            float distance = Mathf.Sqrt(direction.x * direction.x + direction.y * direction.y);
+            distance = Mathf.Abs(distance);
 
-            if (temp >= _circleColliderChildren.radius + temp)
+            if (distance > perfectRadius + errorRange)
             {
                 _enemy._spriteRenderer.sprite = _enemy.sprites[0];
                 _enemy._spriteRenderer.color = Color.blue;
             }
-            else if (temp >= _circleColliderChildren.radius + temp * 2)
+            else if (distance <= perfectRadius + errorRange && distance >= perfectRadius - errorRange)
             {
                 _enemy._spriteRenderer.sprite = _enemy.sprites[1];
                 _enemy._spriteRenderer.color = Color.green;
-                
             }
             else
             {
