@@ -3348,7 +3348,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11d0effe56e3c824591e169a2f69ef74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 4317355752472951409, guid: 71da52ed5575b7248b33f4af67aa5fbc, type: 3}
+  enemy:
+  - {fileID: 4317355752472951409, guid: 71da52ed5575b7248b33f4af67aa5fbc, type: 3}
+  - {fileID: 4317355752472951409, guid: e61703f0a357c0e489013ef2bf3d7773, type: 3}
   pos:
   - {fileID: 1940889077}
   - {fileID: 76032935}
