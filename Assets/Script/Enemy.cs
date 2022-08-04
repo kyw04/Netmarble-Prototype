@@ -4,20 +4,32 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    public enum Type 
+    { 
+        None,
+        Single,
+        Double
+    }
+    public Type nodeType;
     private ParticleSystem _particleSystem;
+    public Enemy _secondNode;
     public SpriteRenderer _spriteRenderer;
-    public Sprite[] sprites;
+    public Sprite[] _sprites;
     public float speed;
+    public float coolTime;
+    public float touchDelay;
     public bool isDead;
+    public bool isTouch;
 
     private Vector3 moveDirection;
 
     private void Start()
     {
+        isTouch = false;
         isDead = false;
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _particleSystem = GetComponent<ParticleSystem>();
-    
+
         moveDirection = -transform.position;
         moveDirection = moveDirection.normalized;
     }
@@ -25,7 +37,14 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         if (!isDead)
+        {
             transform.position += moveDirection * speed * Time.deltaTime;
+
+            if (isTouch && Time.time >= coolTime)
+            {
+                isTouch = false;
+            }
+        }
     }
 
     public void Dead()
@@ -57,7 +76,7 @@ public class Enemy : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            _spriteRenderer.sprite = sprites[2];
+            _spriteRenderer.sprite = _sprites[2];
             _spriteRenderer.color = Color.red;
             Dead();
         }

@@ -4904,13 +4904,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5098e87b238c5844d99acd2c2fdb95e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nodeType: 2
   _spriteRenderer: {fileID: 0}
-  sprites:
+  _sprites:
   - {fileID: -1029103926, guid: 3eaa0273a4227ea40a1fba4c4f0a1f86, type: 3}
   - {fileID: -1201682877, guid: 3eaa0273a4227ea40a1fba4c4f0a1f86, type: 3}
   - {fileID: -1913778368, guid: 3eaa0273a4227ea40a1fba4c4f0a1f86, type: 3}
   speed: 5
+  coolTime: 0
+  touchDelay: 1.5
   isDead: 0
+  isTouch: 0
 --- !u!199 &177124955100540318
 ParticleSystemRenderer:
   serializedVersion: 6

@@ -6,11 +6,7 @@ using UnityEngine.Rendering.Universal;
 
 public class Touch : MonoBehaviour
 {
-    public Light2D[] lights;
-    public Text touchText;
-    public Text inputText;
-    public Text XYText;
-    public Slider slider;
+    public Light2D[] _lights;
     public float perfectRadius;
     private Vector2[] touch = new Vector2[10];
     private float sizeY;
@@ -18,17 +14,15 @@ public class Touch : MonoBehaviour
     private float errorRange;
     private int index;
 
-
     private void Start()
     {
+        errorRange = 0.5f;
         sizeY = Screen.height / 3.0f;
         sizeX = Screen.width / 2.0f;
-        XYText.text = "X : " + sizeX.ToString() + ' ' + Screen.width.ToString() + "\nY : " + sizeY.ToString() + ' ' + Screen.height.ToString();
     }
 
     void Update()
     {
-        errorRange = slider.value;
         index = -1;
         for (int i = 0; i < Input.touchCount; i++)
         {
@@ -49,45 +43,56 @@ public class Touch : MonoBehaviour
                 else
                     index += 2;
 
-                //lights[index].intensity = 2.5f;
+                _lights[index].intensity = 2.5f;
             }
         }
 
-        for (int i = 0; i < lights.Length; i++)
+        for (int i = 0; i < _lights.Length; i++)
         {
-            if (lights[i].intensity > 0)
-                lights[i].intensity -= Time.deltaTime;
-            if (lights[i].intensity < 0)
-                lights[i].intensity = 0;
+            if (_lights[i].intensity > 0)
+                _lights[i].intensity -= Time.deltaTime;
+            if (_lights[i].intensity < 0)
+                _lights[i].intensity = 0;
         }
-
-        touchText.text = touch[0].ToString();
-        inputText.text = errorRange.ToString();
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (index != -1 && collision.gameObject.CompareTag("Line" + index) && collision.GetComponent<Enemy>())
+        Enemy _enemy = collision.GetComponent<Enemy>();
+        if (index != -1 && collision.gameObject.CompareTag("Line" + index) && _enemy)
         {
-            Enemy _enemy = collision.GetComponent<Enemy>();
+            if (_enemy.nodeType == Enemy.Type.Double && !_enemy.isDead)
+            {
+                _enemy.isTouch = true;
+                _enemy.coolTime = Time.time + _enemy.touchDelay;
+                if (!_enemy._secondNode.isTouch) return;
+            }
             Vector3 direction = -collision.transform.position;
             float distance = Mathf.Sqrt(direction.x * direction.x + direction.y * direction.y);
             distance = Mathf.Abs(distance);
 
             if (distance > perfectRadius + errorRange)
             {
-                _enemy._spriteRenderer.sprite = _enemy.sprites[0];
+                _enemy._spriteRenderer.sprite = _enemy._sprites[0];
                 _enemy._spriteRenderer.color = Color.blue;
             }
             else if (distance <= perfectRadius + errorRange && distance >= perfectRadius - errorRange)
             {
-                _enemy._spriteRenderer.sprite = _enemy.sprites[1];
+                _enemy._spriteRenderer.sprite = _enemy._sprites[1];
                 _enemy._spriteRenderer.color = Color.green;
             }
             else
             {
-                _enemy._spriteRenderer.sprite = _enemy.sprites[2];
+                _enemy._spriteRenderer.sprite = _enemy._sprites[2];
                 _enemy._spriteRenderer.color = Color.red;
+            }
+
+            if (_enemy.nodeType == Enemy.Type.Double && _enemy.isTouch && _enemy._secondNode.isTouch)
+            {
+                _enemy._secondNode._spriteRenderer.sprite = _enemy._spriteRenderer.sprite;
+                _enemy._secondNode._spriteRenderer.color = _enemy._spriteRenderer.color;
+
+                _enemy._secondNode.Dead();
             }
 
             _enemy.Dead();
