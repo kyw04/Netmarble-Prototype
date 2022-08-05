@@ -71,14 +71,4 @@ public class Enemy : MonoBehaviour
             yield return new WaitForSeconds(0.001f);
         }
     }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            _spriteRenderer.sprite = _sprites[2];
-            _spriteRenderer.color = Color.red;
-            Dead();
-        }
-    }
 }

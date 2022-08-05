@@ -57,7 +57,7 @@ public class Spawner : MonoBehaviour
             }
             index = Random.Range(minindex, maxIndex);
             GameObject newEnemy2 = Instantiate(enemy[enemyIndex], pos[index].position, Quaternion.identity);
-            newEnemy.gameObject.tag = "Line" + index.ToString();
+            newEnemy2.gameObject.tag = "Line" + index.ToString();
 
             newEnemy.GetComponent<Enemy>()._secondNode = newEnemy2.GetComponent<Enemy>();
             newEnemy2.GetComponent<Enemy>()._secondNode = newEnemy.GetComponent<Enemy>();
