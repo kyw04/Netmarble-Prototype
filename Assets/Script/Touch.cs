@@ -66,22 +66,22 @@ public class Touch : MonoBehaviour
 
                         if (distance > perfectRadius + errorRange + 1.5f)
                         {
-                            _enemy._spriteRenderer.sprite = _enemy._sprites[0];
+                            _enemy._spriteRenderer.sprite = _enemy._sprites[2];
                             _enemy._spriteRenderer.color = Color.black;
                         }
                         else if (distance > perfectRadius + errorRange)
                         {
-                            _enemy._spriteRenderer.sprite = _enemy._sprites[1];
+                            _enemy._spriteRenderer.sprite = _enemy._sprites[0];
                             _enemy._spriteRenderer.color = Color.blue;
                         }
                         else if (distance <= perfectRadius + errorRange && distance >= perfectRadius - errorRange)
                         {
-                            _enemy._spriteRenderer.sprite = _enemy._sprites[2];
+                            _enemy._spriteRenderer.sprite = _enemy._sprites[1];
                             _enemy._spriteRenderer.color = Color.green;
                         }
                         else
                         {
-                            _enemy._spriteRenderer.sprite = _enemy._sprites[3];
+                            _enemy._spriteRenderer.sprite = _enemy._sprites[2];
                             _enemy._spriteRenderer.color = Color.red;
                         }
 
