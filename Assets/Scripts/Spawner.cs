@@ -25,8 +25,8 @@ public class Spawner : MonoBehaviour
 
     private IEnumerator Spawn()
     {
-        //SpawnNode();
-        SpawnLine();
+        SpawnNode();
+        //SpawnLine();
         yield return new WaitForSeconds(time);
         StartCoroutine("Spawn");
     }
@@ -61,7 +61,6 @@ public class Spawner : MonoBehaviour
 
     private GameObject CreateNode(int index)
     {
-
         GameObject newNode = Instantiate(node[index], pos[positionIndex].position, Quaternion.identity);
         newNode.gameObject.tag = "Line" + positionIndex.ToString();
 
