@@ -5,6 +5,7 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     public GameObject[] node;
+    public GameObject line;
     public Transform[] pos;
     public float time;
     private int positionIndex;
@@ -17,18 +18,20 @@ public class Spawner : MonoBehaviour
         //Debug.Log(a);
         //Debug.Log(c);
         //Debug.Log(a - c);
+        Debug.Log(Camera.main.sensorSize);
 
         StartCoroutine("Spawn");
     }
 
     private IEnumerator Spawn()
     {
+        //SpawnNode();
+        SpawnLine();
         yield return new WaitForSeconds(time);
-        Spawnnode();
         StartCoroutine("Spawn");
     }
 
-    private void Spawnnode()
+    private void SpawnNode()
     {
         int nodeIndex = Random.Range(0, node.Length);
         positionIndex = Random.Range(0, pos.Length);
@@ -61,7 +64,6 @@ public class Spawner : MonoBehaviour
 
         GameObject newNode = Instantiate(node[index], pos[positionIndex].position, Quaternion.identity);
         newNode.gameObject.tag = "Line" + positionIndex.ToString();
-        newNode.transform.LookAt(Vector3.zero);
 
         return newNode;
     }
@@ -75,5 +77,23 @@ public class Spawner : MonoBehaviour
         newNode2.GetComponent<Node>()._secondNode = newNode1.GetComponent<Node>();
 
         return newNode2;
+    }
+
+    private void SpawnLine()
+    {
+        int temp = Random.Range(-1, 1);
+        Quaternion quaternion;
+        if (temp == 0)
+        {
+            temp = 1;
+            quaternion = Quaternion.Euler(0, 180, 0);
+        }
+        else
+        {
+            quaternion = Quaternion.identity;
+        }
+
+        GameObject newLine = Instantiate(line, new Vector3(Camera.main.sensorSize.x * temp, 0, 0), quaternion);
+        newLine.transform.localScale = Vector3.up * Camera.main.sensorSize;
     }
 }
