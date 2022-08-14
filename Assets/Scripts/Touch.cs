@@ -67,28 +67,23 @@ public class Touch : MonoBehaviour
                         if (distance > perfectRadius + errorRange + 1.5f)
                         {
                             node._spriteRenderer.sprite = node._sprites[2];
-                            node._spriteRenderer.color = Color.black;
                         }
                         else if (distance > perfectRadius + errorRange)
                         {
                             node._spriteRenderer.sprite = node._sprites[0];
-                            node._spriteRenderer.color = Color.blue;
                         }
                         else if (distance <= perfectRadius + errorRange && distance >= perfectRadius - errorRange)
                         {
                             node._spriteRenderer.sprite = node._sprites[1];
-                            node._spriteRenderer.color = Color.green;
                         }
                         else
                         {
                             node._spriteRenderer.sprite = node._sprites[2];
-                            node._spriteRenderer.color = Color.red;
                         }
 
                         if (node.nodeType == Node.Type.Double && node.isTouch && node._secondNode.isTouch)
                         {
                             node._secondNode._spriteRenderer.sprite = node._spriteRenderer.sprite;
-                            node._secondNode._spriteRenderer.color = node._spriteRenderer.color;
 
                             node._secondNode.Dead();
                         }
@@ -122,7 +117,6 @@ public class Touch : MonoBehaviour
         {
             Node node = collision.GetComponent<Node>();
             node._spriteRenderer.sprite = node._sprites[2];
-            node._spriteRenderer.color = Color.red;
             node.Dead();
         }
     }
