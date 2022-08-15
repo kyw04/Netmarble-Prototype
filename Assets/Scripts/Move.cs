@@ -33,6 +33,7 @@ public class Move : MonoBehaviour
 
             //Touch touch = Input.GetTouch(0);
             //Vector2 touchDeltaPosition = Input.GetTouch(0).deltaPosition; // 수정할 부분 주석 처리함
+            //double touchDeltaPosition;
             Vector2 touchDeltaPosition = Input.GetTouch(0).position - Input.GetTouch(0).rawPosition; // 수정할 코드 추가 
 
             // 가로, 세로 거리의 절대값
@@ -57,14 +58,14 @@ public class Move : MonoBehaviour
                     if (touchDeltaPosition.x < 0)
                     {
                         inputLeft = true;
-                        transform.position = Vector3.Lerp(gameObject.transform.position, new Vector2(-2, 0), speed * 0.01f);
+                        transform.position = Vector3.Lerp(gameObject.transform.position, new Vector2(-15, -2), speed * 0.01f);
                         Invoke("Mm", 1f);
                     }
                     // 오른쪽 드래그 라면
                     else
                     {
                         inputRight = true;
-                        transform.position = Vector3.Lerp(gameObject.transform.position, new Vector2(2, 0), speed * 0.01f);
+                        transform.position = Vector3.Lerp(gameObject.transform.position, new Vector2(18, -2), speed * 0.01f);
                         Invoke("Mm", 1f);
                     }
 
@@ -78,13 +79,13 @@ public class Move : MonoBehaviour
                         // 대각선 아래-왼쪽 드래그 라면
                         if (touchDeltaPosition.x < 0)
                         {
-                            transform.position = Vector3.Lerp(gameObject.transform.position, new Vector2(-2, -2), speed * 0.01f);
+                            transform.position = Vector3.Lerp(gameObject.transform.position, new Vector2(-15, -10), speed * 0.01f);
                             Invoke("Mm", 1f);
                         }
                         // 대각선 아래-오른쪽 드래그 라면
                         else
                         {
-                            transform.position = Vector3.Lerp(gameObject.transform.position, new Vector2(2, -2), speed * 0.01f);
+                            transform.position = Vector3.Lerp(gameObject.transform.position, new Vector2(18, -10), speed * 0.01f);
                             Invoke("Mm", 1f);
                         }
                     }
@@ -94,13 +95,13 @@ public class Move : MonoBehaviour
                         // 대각선 위쪽-왼쪽 드래그 라면
                         if (touchDeltaPosition.x < 0)
                         {
-                            transform.position = Vector3.Lerp(gameObject.transform.position, new Vector2(-2, 2), speed * 0.01f);
+                            transform.position = Vector3.Lerp(gameObject.transform.position, new Vector2(-15, 6), speed * 0.01f);
                             Invoke("Mm", 1f);
                         }
                         // 대각선 위쪽-오른쪽 드래그 라면
                         else
                         {
-                            transform.position = Vector3.Lerp(gameObject.transform.position, new Vector2(2, 2), speed * 0.01f);
+                            transform.position = Vector3.Lerp(gameObject.transform.position, new Vector2(18, 6), speed * 0.01f);
                             Invoke("Mm", 1f);
                         }
                     }
