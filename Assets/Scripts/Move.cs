@@ -6,11 +6,9 @@ using UnityEngine.UI;
 
 public class Move : MonoBehaviour
 {
-    public Slider speedSlider;
+    //public Slider speedSlider;
     public float speed;
     public float value;
-    bool inputRight = false;
-    bool inputLeft = false;
     float maxX, maxY;
 
     void Start()
@@ -26,7 +24,7 @@ public class Move : MonoBehaviour
 
     void Update()
     {
-        speed = speedSlider.value * 1000;
+        //speed = speedSlider.value * 1000;
 
         if (Input.touchCount >= 1)
         {
@@ -57,14 +55,12 @@ public class Move : MonoBehaviour
                     // 왼쪽 드래그 라면
                     if (touchDeltaPosition.x < 0)
                     {
-                        inputLeft = true;
                         transform.position = Vector3.Lerp(gameObject.transform.position, new Vector2(-15, -2), speed * 0.01f);
                         Invoke("Mm", 1f);
                     }
                     // 오른쪽 드래그 라면
                     else
                     {
-                        inputRight = true;
                         transform.position = Vector3.Lerp(gameObject.transform.position, new Vector2(18, -2), speed * 0.01f);
                         Invoke("Mm", 1f);
                     }
