@@ -23,6 +23,8 @@ public class Note : MonoBehaviour
 
     private Vector3 moveDirection;
 
+    //public float finishTime = 0;
+
     private void Start()
     {
         isTouch = false;
@@ -39,6 +41,7 @@ public class Note : MonoBehaviour
         if (!isDead)
         {
             transform.position += moveDirection * speed * Time.deltaTime;
+            //finishTime += Time.deltaTime;
 
             if (isTouch && Time.time >= coolTime)
             {
@@ -51,12 +54,13 @@ public class Note : MonoBehaviour
     {
         if (!isDead)
         {
+            //Debug.Log(finishTime);
             isDead = true;
             gameObject.layer = 8;
             _particleSystem.Play();
 
             StartCoroutine(Transparency());
-
+            
             Destroy(this.gameObject, 2f);
         }
     }

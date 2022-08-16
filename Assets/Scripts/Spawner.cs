@@ -4,44 +4,68 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
+    private TextReader reader;
+    public MusicManager musicManager;
     public GameObject[] note;
-    public GameObject line;
     public Transform[] pos;
     public float time;
     private int positionIndex;
+    private int noteIndex;
     void Start()
     {
-        //float a = Vector3.zero.x - pos[1].position.x;
-        //float b = pos[1].position.y - pos[2].position.y;
-        //float c = Mathf.Sqrt(a * a + b * b);
-
-        //Debug.Log(a);
-        //Debug.Log(c);
-        //Debug.Log(a - c);
-        Debug.Log(Camera.main.sensorSize);
+        reader = GetComponent<TextReader>();
+        noteIndex = 0;
 
         StartCoroutine("Spawn");
     }
 
     private IEnumerator Spawn()
     {
-        SpawnNote();
-        //SpawnLine();
-        yield return new WaitForSeconds(time);
-        StartCoroutine("Spawn");
+        noteIndex++;
+
+        if (noteIndex < reader.n)
+        {
+            time = reader.time[noteIndex];
+
+
+            yield return new WaitForSeconds(time);
+
+            if (musicManager.isPlaying == false)
+            {
+                StartCoroutine(musicManager.StartMusic(0, 5.523338f - 0.2767995f));
+            }
+
+            if (reader.type[noteIndex] == 0 || reader.type[noteIndex] == 1)
+            {
+                SpawnNote(reader.type[noteIndex]);
+            }
+            else if (reader.type[noteIndex] == 2)
+            {
+
+            }
+            else if (reader.type[noteIndex] == 3)
+            {
+                SpawnLine();
+            }
+
+            StartCoroutine("Spawn");
+        }
+        else
+        {
+            yield return null;
+        }
     }
 
-    private void SpawnNote()
+    private void SpawnNote(int index)
     {
-        int noteIndex = Random.Range(0, note.Length);
         positionIndex = Random.Range(0, pos.Length);
 
 
-        if (noteIndex == 0)
+        if (index == 0)
         {
-            CreateNote(noteIndex);
+            CreateNote(index);
         }
-        else if (noteIndex == 1)
+        else if (index == 1)
         {
             int minIndex, maxIndex;
             if (positionIndex >= 3)
@@ -55,7 +79,7 @@ public class Spawner : MonoBehaviour
                 maxIndex = pos.Length;
             }
 
-            CreateNote(noteIndex, minIndex, maxIndex);
+            CreateNote(index, minIndex, maxIndex);
         }
     }
 
@@ -92,7 +116,7 @@ public class Spawner : MonoBehaviour
             quaternion = Quaternion.identity;
         }
 
-        GameObject newLine = Instantiate(line, new Vector3(Camera.main.sensorSize.x * temp, 0, 0), quaternion);
+        GameObject newLine = Instantiate(note[3], new Vector3(Camera.main.sensorSize.x * temp, 0, 0), quaternion);
         newLine.transform.localScale = Vector3.up * Camera.main.sensorSize;
     }
 }
