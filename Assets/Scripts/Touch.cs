@@ -52,7 +52,7 @@ public class Touch : MonoBehaviour
                     Note note = hit.collider.GetComponent<Note>();
                     if (index != -1 && hit.collider.gameObject.CompareTag("Line" + index) && note)
                     {
-                        Debug.Log(hit.collider.name);
+                        //Debug.Log(hit.collider.name);
                         if (note.noteType == Note.Type.Double && !note.isDead)
                         {
                             //Debug.Log("double note touch");
