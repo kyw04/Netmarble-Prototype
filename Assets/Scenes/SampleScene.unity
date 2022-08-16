@@ -1750,7 +1750,6 @@ GameObject:
   - component: {fileID: 1129641188}
   - component: {fileID: 1129641192}
   - component: {fileID: 1129641193}
-  - component: {fileID: 1129641190}
   - component: {fileID: 1129641194}
   m_Layer: 6
   m_Name: Player
@@ -1826,28 +1825,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1129641190
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1129641187}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a78b92bb7733ca44b9d929b11acc3bd8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _lights:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  _spawner: {fileID: 1162742351}
-  perfectRadius: 2.5
-  distance: 5
 --- !u!58 &1129641192
 CircleCollider2D:
   m_ObjectHideFlags: 0
