@@ -24,14 +24,13 @@ public class Move : MonoBehaviour
 
     void Update()
     {
-        //speed = speedSlider.value * 1000;
+        speed = value * 1000;
 
         if (Input.touchCount >= 1)
         {
 
             //Touch touch = Input.GetTouch(0);
-            //Vector2 touchDeltaPosition = Input.GetTouch(0).deltaPosition; // 수정할 부분 주석 처리함
-            //double touchDeltaPosition;
+            //Vector2 touchDeltaPosition = Input.GetTouch(0).deltaPosition; // 수정할 부분 주석 처리함  
             Vector2 touchDeltaPosition = Input.GetTouch(0).position - Input.GetTouch(0).rawPosition; // 수정할 코드 추가 
 
             // 가로, 세로 거리의 절대값
