@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5322924062158670426}
   - component: {fileID: 177124955100540318}
   m_Layer: 7
-  m_Name: Double Node
+  m_Name: Double Note
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

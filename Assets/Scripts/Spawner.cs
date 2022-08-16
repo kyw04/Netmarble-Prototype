@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    public GameObject[] node;
+    public GameObject[] note;
     public GameObject line;
     public Transform[] pos;
     public float time;
@@ -25,23 +25,23 @@ public class Spawner : MonoBehaviour
 
     private IEnumerator Spawn()
     {
-        SpawnNode();
+        SpawnNote();
         //SpawnLine();
         yield return new WaitForSeconds(time);
         StartCoroutine("Spawn");
     }
 
-    private void SpawnNode()
+    private void SpawnNote()
     {
-        int nodeIndex = Random.Range(0, node.Length);
+        int noteIndex = Random.Range(0, note.Length);
         positionIndex = Random.Range(0, pos.Length);
 
 
-        if (nodeIndex == 0)
+        if (noteIndex == 0)
         {
-            CreateNode(nodeIndex);
+            CreateNote(noteIndex);
         }
-        else if (nodeIndex == 1)
+        else if (noteIndex == 1)
         {
             int minIndex, maxIndex;
             if (positionIndex >= 3)
@@ -55,27 +55,27 @@ public class Spawner : MonoBehaviour
                 maxIndex = pos.Length;
             }
 
-            CreateNode(nodeIndex, minIndex, maxIndex);
+            CreateNote(noteIndex, minIndex, maxIndex);
         }
     }
 
-    private GameObject CreateNode(int index)
+    private GameObject CreateNote(int index)
     {
-        GameObject newNode = Instantiate(node[index], pos[positionIndex].position, Quaternion.identity);
-        newNode.gameObject.tag = "Line" + positionIndex.ToString();
+        GameObject newNote = Instantiate(note[index], pos[positionIndex].position, Quaternion.identity);
+        newNote.gameObject.tag = "Line" + positionIndex.ToString();
 
-        return newNode;
+        return newNote;
     }
-    private GameObject CreateNode(int index, int minIndex, int maxIndex)
+    private GameObject CreateNote(int index, int minIndex, int maxIndex)
     {
-        GameObject newNode1 = CreateNode(index);
+        GameObject newNote1 = CreateNote(index);
         positionIndex = Random.Range(minIndex, maxIndex);
-        GameObject newNode2 = CreateNode(index);
+        GameObject newNote2 = CreateNote(index);
 
-        newNode1.GetComponent<Node>()._secondNode = newNode2.GetComponent<Node>();
-        newNode2.GetComponent<Node>()._secondNode = newNode1.GetComponent<Node>();
+        newNote1.GetComponent<Note>()._secondNote = newNote2.GetComponent<Note>();
+        newNote2.GetComponent<Note>()._secondNote = newNote1.GetComponent<Note>();
 
-        return newNode2;
+        return newNote2;
     }
 
     private void SpawnLine()

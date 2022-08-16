@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Node : MonoBehaviour
+public class Note : MonoBehaviour
 {
     public enum Type 
     { 
@@ -10,9 +10,9 @@ public class Node : MonoBehaviour
         Single,
         Double
     }
-    public Type nodeType;
+    public Type noteType;
     private ParticleSystem _particleSystem;
-    public Node _secondNode;
+    public Note _secondNote;
     public SpriteRenderer _spriteRenderer;
     public Sprite[] _sprites;
     public float speed;

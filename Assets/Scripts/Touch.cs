@@ -44,21 +44,21 @@ public class Touch : MonoBehaviour
                 else
                     index += 2;
 
-                int mask = 1 << LayerMask.NameToLayer("Node");
+                int mask = 1 << LayerMask.NameToLayer("Note");
                 RaycastHit2D hit = Physics2D.Raycast(Vector2.zero, _spawner.pos[index].position, distance, mask);
                 if (hit)
                 {
                     //Debug.Log("hit!");
-                    Node node = hit.collider.GetComponent<Node>();
-                    if (index != -1 && hit.collider.gameObject.CompareTag("Line" + index) && node)
+                    Note note = hit.collider.GetComponent<Note>();
+                    if (index != -1 && hit.collider.gameObject.CompareTag("Line" + index) && note)
                     {
                         Debug.Log(hit.collider.name);
-                        if (node.nodeType == Node.Type.Double && !node.isDead)
+                        if (note.noteType == Note.Type.Double && !note.isDead)
                         {
-                            //Debug.Log("double node touch");
-                            node.isTouch = true;
-                            node.coolTime = Time.time + node.touchDelay;
-                            if (!node._secondNode.isTouch) continue;
+                            //Debug.Log("double note touch");
+                            note.isTouch = true;
+                            note.coolTime = Time.time + note.touchDelay;
+                            if (!note._secondNote.isTouch) continue;
                         }
                         Vector3 direction = -hit.collider.transform.position;
                         float distance = Mathf.Sqrt(direction.x * direction.x + direction.y * direction.y);
@@ -66,29 +66,29 @@ public class Touch : MonoBehaviour
 
                         if (distance > perfectRadius + errorRange + 1.5f)
                         {
-                            node._spriteRenderer.sprite = node._sprites[2];
+                            note._spriteRenderer.sprite = note._sprites[2];
                         }
                         else if (distance > perfectRadius + errorRange)
                         {
-                            node._spriteRenderer.sprite = node._sprites[0];
+                            note._spriteRenderer.sprite = note._sprites[0];
                         }
                         else if (distance <= perfectRadius + errorRange && distance >= perfectRadius - errorRange)
                         {
-                            node._spriteRenderer.sprite = node._sprites[1];
+                            note._spriteRenderer.sprite = note._sprites[1];
                         }
                         else
                         {
-                            node._spriteRenderer.sprite = node._sprites[2];
+                            note._spriteRenderer.sprite = note._sprites[2];
                         }
 
-                        if (node.nodeType == Node.Type.Double && node.isTouch && node._secondNode.isTouch)
+                        if (note.noteType == Note.Type.Double && note.isTouch && note._secondNote.isTouch)
                         {
-                            node._secondNode._spriteRenderer.sprite = node._spriteRenderer.sprite;
+                            note._secondNote._spriteRenderer.sprite = note._spriteRenderer.sprite;
 
-                            node._secondNode.Dead();
+                            note._secondNote.Dead();
                         }
 
-                        node.Dead();
+                        note.Dead();
                     }
                 }
                 //Debug.Log(index);
@@ -115,9 +115,9 @@ public class Touch : MonoBehaviour
     {
         if (collision.gameObject.layer == 7)
         {
-            Node node = collision.GetComponent<Node>();
-            node._spriteRenderer.sprite = node._sprites[2];
-            node.Dead();
+            Note note = collision.GetComponent<Note>();
+            note._spriteRenderer.sprite = note._sprites[2];
+            note.Dead();
         }
     }
 }
