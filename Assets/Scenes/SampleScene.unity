@@ -1436,7 +1436,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04749681868499d4f9d5c94e34f6bdf8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedSlider: {fileID: 0}
   speed: 2
   value: 2
 --- !u!1 &1162742349
@@ -1489,7 +1488,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11d0effe56e3c824591e169a2f69ef74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  node:
+  note:
   - {fileID: 4317355752472951409, guid: 71da52ed5575b7248b33f4af67aa5fbc, type: 3}
   - {fileID: 4317355752472951409, guid: e61703f0a357c0e489013ef2bf3d7773, type: 3}
   line: {fileID: 7944261575684503279, guid: f0d4f9b7899421a4aa6a0c09241328fa, type: 3}
