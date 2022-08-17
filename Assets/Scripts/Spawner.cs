@@ -36,7 +36,7 @@ public class Spawner : MonoBehaviour
                 if (PlayerPrefs.HasKey("WaitTime"))
                     _time = PlayerPrefs.GetFloat("WaitTime");
                 else
-                    _time = 5.523338f - 0.2767995f;
+                    _time = 3.15f;
 
                 StartCoroutine(musicManager.StartMusic(0, _time));
             }
