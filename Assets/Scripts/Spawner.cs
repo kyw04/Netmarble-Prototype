@@ -32,7 +32,13 @@ public class Spawner : MonoBehaviour
 
             if (musicManager.isPlaying == false)
             {
-                StartCoroutine(musicManager.StartMusic(0, 5.523338f - 0.2767995f));
+                float _time;
+                if (PlayerPrefs.HasKey("WaitTime"))
+                    _time = PlayerPrefs.GetFloat("WaitTime");
+                else
+                    _time = 5.523338f - 0.2767995f;
+
+                StartCoroutine(musicManager.StartMusic(0, _time));
             }
 
             if (reader.type[noteIndex] == 0 || reader.type[noteIndex] == 1)
