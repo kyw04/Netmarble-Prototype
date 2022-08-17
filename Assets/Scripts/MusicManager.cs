@@ -15,13 +15,13 @@ public class MusicManager : MonoBehaviour
         isPlaying = false;
     }
 
-    public IEnumerator StartMusic(int index, float bufferTime)
+    public IEnumerator StartMusic(int index, float waitTime)
     {
         if (music[index] != null)
         {
             isPlaying = true;
             audioSource.clip = music[index];
-            yield return new WaitForSeconds(bufferTime);
+            yield return new WaitForSeconds(waitTime);
             audioSource.Play();
         }
     }
