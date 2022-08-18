@@ -113,6 +113,7 @@ public class Touch : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log(1);
         if (collision.gameObject.layer == 7)
         {
             Note note = collision.GetComponent<Note>();
