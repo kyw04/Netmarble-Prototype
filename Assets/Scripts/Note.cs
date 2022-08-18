@@ -75,4 +75,12 @@ public class Note : MonoBehaviour
             yield return new WaitForSeconds(0.001f);
         }
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.layer == 6)
+        {
+            _spriteRenderer.sprite = _sprites[2];
+            Dead();
+        }
+    }
 }
