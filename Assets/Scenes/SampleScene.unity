@@ -839,7 +839,6 @@ GameObject:
   - component: {fileID: 569684290}
   - component: {fileID: 569684293}
   - component: {fileID: 569684292}
-  - component: {fileID: 569684294}
   - component: {fileID: 569684291}
   m_Layer: 5
   m_Name: Continue
@@ -962,21 +961,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 569684289}
   m_CullTransparentMesh: 1
---- !u!114 &569684294
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 569684289}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c32ee898121d574abab080640edc350, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  menuSetOpenButton: {fileID: 0}
-  menuSet: {fileID: 925391580}
-  music: {fileID: 0}
 --- !u!1 &673164440
 GameObject:
   m_ObjectHideFlags: 0
@@ -1156,7 +1140,6 @@ GameObject:
   - component: {fileID: 769775037}
   - component: {fileID: 769775040}
   - component: {fileID: 769775039}
-  - component: {fileID: 769775041}
   - component: {fileID: 769775038}
   m_Layer: 5
   m_Name: Replay
@@ -1279,21 +1262,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 769775036}
   m_CullTransparentMesh: 1
---- !u!114 &769775041
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 769775036}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c32ee898121d574abab080640edc350, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  menuSetOpenButton: {fileID: 0}
-  menuSet: {fileID: 925391580}
-  music: {fileID: 0}
 --- !u!1 &785076642
 GameObject:
   m_ObjectHideFlags: 0

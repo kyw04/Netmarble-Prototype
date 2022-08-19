@@ -13,6 +13,11 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         isMenuSetActive = false;
+        menuSet.SetActive(false);
+        menuSetOpenButton.SetActive(true);
+       
+        Time.timeScale = 1;
+        music.Play();
     }
 
     void Update()
