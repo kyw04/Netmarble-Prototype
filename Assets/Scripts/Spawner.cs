@@ -5,6 +5,7 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     private TextReader reader;
+    public Move move;
     public MusicManager musicManager;
     public GameObject[] note;
     public Transform[] pos;

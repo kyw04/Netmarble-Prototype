@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: -6984636622316422874}
   - component: {fileID: -2433156579942589674}
   m_Layer: 8
-  m_Name: DangerLine
-  m_TagString: Untagged
+  m_Name: Big Note
+  m_TagString: BigNote
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

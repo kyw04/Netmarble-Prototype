@@ -9,11 +9,14 @@ public class Move : MonoBehaviour
     //public Slider speedSlider;
     public float speed;
     public float value;
+    public bool isMove;
     float maxX, maxY;
 
     void Start()
     {
         value = 10f;
+        speed = value * 1000;
+        isMove = false;
     }
 
     // 제자리 위치 지정
@@ -24,9 +27,12 @@ public class Move : MonoBehaviour
 
     void Update()
     {
-        speed = value * 1000;
+        if (GameObject.FindGameObjectWithTag("BigNote"))
+            isMove = true;
+        else
+            isMove = false;
 
-        if (Input.touchCount >= 1)
+        if (Input.touchCount >= 1 && isMove)
         {
 
             //Touch touch = Input.GetTouch(0);
