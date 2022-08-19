@@ -10,6 +10,7 @@ TagManager:
   - Line3
   - Line4
   - Line5
+  - BigNote
   layers:
   - Default
   - TransparentFX
