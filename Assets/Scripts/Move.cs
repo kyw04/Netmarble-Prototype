@@ -54,13 +54,13 @@ public class Move : MonoBehaviour
                     // 왼쪽 드래그 라면
                     if (touchDeltaPosition.x < 0)
                     {
-                        transform.position = Vector3.Lerp(gameObject.transform.position, new Vector2(-15, -2), speed * 0.01f);
+                        transform.position = Vector3.Lerp(gameObject.transform.position, new Vector2(-15, 0), speed * 0.01f);
                         Invoke("Mm", 1f);
                     }
                     // 오른쪽 드래그 라면
                     else
                     {
-                        transform.position = Vector3.Lerp(gameObject.transform.position, new Vector2(18, -2), speed * 0.01f);
+                        transform.position = Vector3.Lerp(gameObject.transform.position, new Vector2(15, 0), speed * 0.01f);
                         Invoke("Mm", 1f);
                     }
 
@@ -74,13 +74,13 @@ public class Move : MonoBehaviour
                         // 대각선 아래-왼쪽 드래그 라면
                         if (touchDeltaPosition.x < 0)
                         {
-                            transform.position = Vector3.Lerp(gameObject.transform.position, new Vector2(-15, -10), speed * 0.01f);
+                            transform.position = Vector3.Lerp(gameObject.transform.position, new Vector2(-15, -8), speed * 0.01f);
                             Invoke("Mm", 1f);
                         }
                         // 대각선 아래-오른쪽 드래그 라면
                         else
                         {
-                            transform.position = Vector3.Lerp(gameObject.transform.position, new Vector2(18, -10), speed * 0.01f);
+                            transform.position = Vector3.Lerp(gameObject.transform.position, new Vector2(15, -8), speed * 0.01f);
                             Invoke("Mm", 1f);
                         }
                     }
@@ -90,13 +90,13 @@ public class Move : MonoBehaviour
                         // 대각선 위쪽-왼쪽 드래그 라면
                         if (touchDeltaPosition.x < 0)
                         {
-                            transform.position = Vector3.Lerp(gameObject.transform.position, new Vector2(-15, 6), speed * 0.01f);
+                            transform.position = Vector3.Lerp(gameObject.transform.position, new Vector2(-15, 7), speed * 0.01f);
                             Invoke("Mm", 1f);
                         }
                         // 대각선 위쪽-오른쪽 드래그 라면
                         else
                         {
-                            transform.position = Vector3.Lerp(gameObject.transform.position, new Vector2(18, 6), speed * 0.01f);
+                            transform.position = Vector3.Lerp(gameObject.transform.position, new Vector2(15, 7), speed * 0.01f);
                             Invoke("Mm", 1f);
                         }
                     }
