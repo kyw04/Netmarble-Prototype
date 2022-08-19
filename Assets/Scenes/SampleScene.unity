@@ -976,6 +976,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menuSetOpenButton: {fileID: 0}
   menuSet: {fileID: 925391580}
+  music: {fileID: 0}
 --- !u!1 &673164440
 GameObject:
   m_ObjectHideFlags: 0
@@ -1292,6 +1293,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menuSetOpenButton: {fileID: 0}
   menuSet: {fileID: 925391580}
+  music: {fileID: 0}
 --- !u!1 &785076642
 GameObject:
   m_ObjectHideFlags: 0
@@ -1683,6 +1685,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menuSetOpenButton: {fileID: 1072746431}
   menuSet: {fileID: 925391580}
+  music: {fileID: 1162742354}
 --- !u!4 &1013031627
 Transform:
   m_ObjectHideFlags: 0
