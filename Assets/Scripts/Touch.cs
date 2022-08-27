@@ -91,8 +91,6 @@ public class Touch : MonoBehaviour
                         note.Dead();
                     }
                 }
-                //Debug.Log(index);
-                //_lights[index].intensity = 2.5f;
             }
         }
         Debug.DrawRay(Vector3.zero, _spawner.pos[0].position * distance, Color.red);
@@ -101,19 +99,11 @@ public class Touch : MonoBehaviour
         Debug.DrawRay(Vector3.zero, _spawner.pos[3].position * distance, Color.green);
         Debug.DrawRay(Vector3.zero, _spawner.pos[4].position * distance, Color.cyan);
         Debug.DrawRay(Vector3.zero, _spawner.pos[5].position * distance, Color.gray);
-
-        //for (int i = 0; i < _lights.Length; i++)
-        //{
-        //    if (_lights[i].intensity > 0)
-        //        _lights[i].intensity -= Time.deltaTime;
-        //    if (_lights[i].intensity < 0)
-        //        _lights[i].intensity = 0;
-        //}
-    }
+        }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(1);
+        //Debug.Log(1);
         if (collision.gameObject.layer == 7)
         {
             Note note = collision.GetComponent<Note>();

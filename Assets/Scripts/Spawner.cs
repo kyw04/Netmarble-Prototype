@@ -7,11 +7,12 @@ public class Spawner : MonoBehaviour
     private TextReader reader;
     public Move move;
     public MusicManager musicManager;
-    public GameObject[] note;
+    public string[] noteName;
     public Transform[] pos;
     public float time;
     private int positionIndex;
     private int noteIndex;
+
     void Start()
     {
         reader = GetComponent<TextReader>();
@@ -92,7 +93,9 @@ public class Spawner : MonoBehaviour
 
     private GameObject CreateNote(int index)
     {
-        GameObject newNote = Instantiate(note[index], pos[positionIndex].position, Quaternion.identity);
+        GameObject newNote = ObjectPool.Instance.MakeObject(noteName[index]);
+        newNote.transform.position = pos[positionIndex].position;
+        newNote.transform.rotation = Quaternion.identity;
         newNote.gameObject.tag = "Line" + positionIndex.ToString();
 
         return newNote;
@@ -123,7 +126,9 @@ public class Spawner : MonoBehaviour
             quaternion = Quaternion.identity;
         }
 
-        GameObject newLine = Instantiate(note[3], new Vector3(Camera.main.sensorSize.x * temp, 0, 0), quaternion);
-        newLine.transform.localScale = Vector3.up * Camera.main.sensorSize;
+        GameObject newNote = ObjectPool.Instance.MakeObject(noteName[3]);
+        newNote.transform.position = new Vector3(Camera.main.sensorSize.x * temp, 0, 0);
+        newNote.transform.rotation = quaternion;
+        newNote.transform.localScale = Vector3.up * Camera.main.sensorSize;
     }
 }

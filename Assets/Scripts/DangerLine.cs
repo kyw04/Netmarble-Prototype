@@ -25,7 +25,7 @@ public class DangerLine : MonoBehaviour
         speed *= 0.01f;
 
         yield return StartCoroutine(ScaleChange(n, 0.25f));
-        Destroy(gameObject);
+        ObjectPool.Instance.DestroyObject(gameObject);
     }
 
     private IEnumerator ScaleChange(float n, float time)

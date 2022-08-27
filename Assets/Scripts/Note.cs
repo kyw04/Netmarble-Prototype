@@ -61,7 +61,7 @@ public class Note : MonoBehaviour
 
             StartCoroutine(Transparency());
             
-            Destroy(this.gameObject, 2f);
+            ObjectPool.Instance.DestroyObject(this.gameObject, 2f);
         }
     }
     
