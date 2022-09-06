@@ -2058,11 +2058,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11d0effe56e3c824591e169a2f69ef74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bigNoteHitBoxSprite:
+  - {fileID: 21300000, guid: 96f8054fc54cde24991821511ca59666, type: 3}
+  - {fileID: 21300000, guid: 13ff8a1c9db74bb418431b63405d9f93, type: 3}
+  - {fileID: 21300000, guid: c8422353c716ea3479441463d0db4b78, type: 3}
+  - {fileID: 21300000, guid: e6cdbda38dff6a2489288d8d1766eb5b, type: 3}
+  - {fileID: 21300000, guid: 5d81f5313e1a497419d8c67a0be7e2c8, type: 3}
+  - {fileID: 21300000, guid: 2ce279388ba33bb45bdff6a0231fa2d9, type: 3}
+  bigNoteMarkSprite:
+  - {fileID: 21300000, guid: e742860e82897dc4192892ec98a0fce7, type: 3}
+  - {fileID: 21300000, guid: f5ba67c878d919c41b50a708b2eecf16, type: 3}
+  - {fileID: 21300000, guid: 66a7ebfd16803d742a9c53aeb49d049a, type: 3}
+  - {fileID: 21300000, guid: 2a51f07b1e1912a4ab7a5eb7e9d5481c, type: 3}
+  - {fileID: 21300000, guid: 9af26e8b0dcc8ba4faa95f9dc336e3fd, type: 3}
+  - {fileID: 21300000, guid: 33812645f9c62904499617d75da8b0eb, type: 3}
   move: {fileID: 0}
   musicManager: {fileID: 1162742353}
   noteName:
   - SingleNote
   - DoubleNote
+  - LongNote
   - BigNote
   pos:
   - {fileID: 1940889077}

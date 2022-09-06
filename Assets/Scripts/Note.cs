@@ -20,20 +20,20 @@ public class Note : MonoBehaviour
     public float touchDelay;
     public bool isDead;
     public bool isTouch;
-
-    private Vector3 moveDirection;
+    
+    [HideInInspector]
+    public Vector3 moveDirection;
 
     //public float finishTime = 0;
 
+    private void OnEnable() { Start(); }
     private void Start()
     {
         isTouch = false;
         isDead = false;
+        gameObject.layer = 7;
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _particleSystem = GetComponent<ParticleSystem>();
-
-        moveDirection = -transform.position;
-        moveDirection = moveDirection.normalized;
     }
 
     void Update()
@@ -59,22 +59,10 @@ public class Note : MonoBehaviour
             gameObject.layer = 8;
             _particleSystem.Play();
 
-            StartCoroutine(Transparency());
-            
             ObjectPool.Instance.DestroyObject(this.gameObject, 2f);
         }
     }
-    
-    private IEnumerator Transparency()
-    {
-        yield return new WaitForSeconds(1f);
 
-        while (_spriteRenderer.color.a > 0)
-        {
-            _spriteRenderer.color -= new Color32(0, 0, 0, 1);
-            yield return new WaitForSeconds(0.001f);
-        }
-    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.layer == 6)

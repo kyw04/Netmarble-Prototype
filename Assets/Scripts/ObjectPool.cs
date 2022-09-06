@@ -61,6 +61,8 @@ public class ObjectPool : MonoBehaviour
             case "DoubleNote":
                 targetPool = doubleNote;
                 break;
+            case "LongNote":
+                break;
             case "BigNote":
                 targetPool = bigNote;
                 break;

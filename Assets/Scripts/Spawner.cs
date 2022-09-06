@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
+    [SerializeField]
+    private Sprite[] bigNoteHitBoxSprite;
+    [SerializeField]
+    private Sprite[] bigNoteMarkSprite;
+
     private TextReader reader;
     public Move move;
     public MusicManager musicManager;
@@ -53,7 +58,7 @@ public class Spawner : MonoBehaviour
             }
             else if (reader.type[noteIndex] == 3)
             {
-                SpawnLine();
+                SpawnBigNote();
             }
 
             StartCoroutine("Spawn");
@@ -94,9 +99,12 @@ public class Spawner : MonoBehaviour
     private GameObject CreateNote(int index)
     {
         GameObject newNote = ObjectPool.Instance.MakeObject(noteName[index]);
+        Note noteScript = newNote.GetComponent<Note>();
         newNote.transform.position = pos[positionIndex].position;
         newNote.transform.rotation = Quaternion.identity;
         newNote.gameObject.tag = "Line" + positionIndex.ToString();
+        noteScript.moveDirection = -pos[positionIndex].position;
+        noteScript.moveDirection = noteScript.moveDirection.normalized;
 
         return newNote;
     }
@@ -112,23 +120,36 @@ public class Spawner : MonoBehaviour
         return newNote2;
     }
 
-    private void SpawnLine()
+    private void SpawnBigNote()
     {
-        int temp = Random.Range(-1, 1);
-        Quaternion quaternion;
-        if (temp == 0)
+        int index = Random.Range(0, 6);
+        Vector2 direction = Vector2.zero;
+
+        switch (index)
         {
-            temp = 1;
-            quaternion = Quaternion.Euler(0, 180, 0);
-        }
-        else
-        {
-            quaternion = Quaternion.identity;
+            case 0: // 왼쪽 
+            case 1: // 왼쪽 아래
+            case 2: // 왼쪽 위
+                direction = new Vector2(1, 0);
+                break;
+            case 3: // 오른쪽
+            case 4: // 오른쪽 아래
+            case 5: // 오른쪽 위
+                direction = new Vector2(-1, 0);
+                break;
         }
 
+
         GameObject newNote = ObjectPool.Instance.MakeObject(noteName[3]);
-        newNote.transform.position = new Vector3(Camera.main.sensorSize.x * temp, 0, 0);
-        newNote.transform.rotation = quaternion;
-        newNote.transform.localScale = Vector3.up * Camera.main.sensorSize;
+        newNote.transform.position = Vector3.zero;
+        newNote.transform.localScale = Camera.main.sensorSize / 1.5f;
+        BigNote newNoteBig = newNote.GetComponent<BigNote>();
+        newNoteBig.direction = direction;
+
+        newNoteBig.hitBoxRenderer.material.mainTextureOffset = direction;
+        newNoteBig.markRenderer.material.mainTextureOffset = direction;
+
+        newNote.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = bigNoteHitBoxSprite[index];
+        newNote.transform.GetChild(1).GetComponent<SpriteRenderer>().sprite = bigNoteMarkSprite[index];
     }
 }
