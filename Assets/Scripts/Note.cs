@@ -13,8 +13,6 @@ public class Note : MonoBehaviour
     public Type noteType;
     private ParticleSystem _particleSystem;
     public Note _secondNote;
-    public SpriteRenderer _spriteRenderer;
-    public Sprite[] _sprites;
     public float speed;
     public float coolTime;
     public float touchDelay;
@@ -32,7 +30,6 @@ public class Note : MonoBehaviour
         isTouch = false;
         isDead = false;
         gameObject.layer = 7;
-        _spriteRenderer = GetComponent<SpriteRenderer>();
         _particleSystem = GetComponent<ParticleSystem>();
     }
 
@@ -59,16 +56,16 @@ public class Note : MonoBehaviour
             gameObject.layer = 8;
             _particleSystem.Play();
 
-            ObjectPool.Instance.DestroyObject(this.gameObject, 2f);
+            ObjectPool.Instance.DestroyObject(this.gameObject, 0f);
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.layer == 6)
-        {
-            _spriteRenderer.sprite = _sprites[2];
-            Dead();
-        }
-    }
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    if (collision.gameObject.layer == 6)
+    //    {
+    //        Judgment.Instance.JudgmentChange(Judgment.Type.Bad);
+    //        Dead();
+    //    }
+    //}
 }

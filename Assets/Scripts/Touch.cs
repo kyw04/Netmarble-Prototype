@@ -6,7 +6,6 @@ using UnityEngine.Rendering.Universal;
 
 public class Touch : MonoBehaviour
 {
-    public Light2D[] _lights;
     public Spawner _spawner;
     public float perfectRadius;
     public float distance;
@@ -66,25 +65,23 @@ public class Touch : MonoBehaviour
 
                         if (distance > perfectRadius + errorRange + 1.5f)
                         {
-                            note._spriteRenderer.sprite = note._sprites[2];
+                            Judgment.Instance.JudgmentChange(Judgment.Type.Bad);
                         }
                         else if (distance > perfectRadius + errorRange)
                         {
-                            note._spriteRenderer.sprite = note._sprites[0];
+                            Judgment.Instance.JudgmentChange(Judgment.Type.Good);
                         }
                         else if (distance <= perfectRadius + errorRange && distance >= perfectRadius - errorRange)
                         {
-                            note._spriteRenderer.sprite = note._sprites[1];
+                            Judgment.Instance.JudgmentChange(Judgment.Type.Perfect);
                         }
                         else
                         {
-                            note._spriteRenderer.sprite = note._sprites[2];
+                            Judgment.Instance.JudgmentChange(Judgment.Type.Bad);
                         }
 
                         if (note.noteType == Note.Type.Double && note.isTouch && note._secondNote.isTouch)
                         {
-                            note._secondNote._spriteRenderer.sprite = note._spriteRenderer.sprite;
-
                             note._secondNote.Dead();
                         }
 
@@ -104,10 +101,10 @@ public class Touch : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //Debug.Log(1);
-        if (collision.gameObject.layer == 7)
+        if (collision.GetComponent<Note>())
         {
+            Judgment.Instance.JudgmentChange(Judgment.Type.Bad);
             Note note = collision.GetComponent<Note>();
-            note._spriteRenderer.sprite = note._sprites[2];
             note.Dead();
         }
     }
