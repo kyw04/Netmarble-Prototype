@@ -13,6 +13,8 @@ public class Judgment : MonoBehaviour
         None
     }
     public Sprite[] sprites;
+    public float eraseSpeed;
+
     private SpriteRenderer spriteRenderer;
 
     private void Awake()
@@ -24,5 +26,14 @@ public class Judgment : MonoBehaviour
     public void JudgmentChange(Type type)
     {
         spriteRenderer.sprite = sprites[(int)type];
+        spriteRenderer.color = Color.white;
+    }
+
+    private void Update()
+    {
+        if (spriteRenderer.color.a > 0)
+        {
+            spriteRenderer.color -= new Color(0, 0, 0, eraseSpeed * Time.deltaTime);
+        }
     }
 }

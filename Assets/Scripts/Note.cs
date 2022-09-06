@@ -12,6 +12,7 @@ public class Note : MonoBehaviour
     }
     public Type noteType;
     private ParticleSystem _particleSystem;
+    private SpriteRenderer _spriteRenderer;
     public Note _secondNote;
     public float speed;
     public float coolTime;
@@ -31,6 +32,8 @@ public class Note : MonoBehaviour
         isDead = false;
         gameObject.layer = 7;
         _particleSystem = GetComponent<ParticleSystem>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+        _spriteRenderer.enabled = true;
     }
 
     void Update()
@@ -55,8 +58,9 @@ public class Note : MonoBehaviour
             isDead = true;
             gameObject.layer = 8;
             _particleSystem.Play();
+            _spriteRenderer.enabled = false;
 
-            ObjectPool.Instance.DestroyObject(this.gameObject, 0f);
+            ObjectPool.Instance.DestroyObject(this.gameObject, 2f);
         }
     }
 

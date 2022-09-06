@@ -2001,7 +2001,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a78b92bb7733ca44b9d929b11acc3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _lights: []
   _spawner: {fileID: 1162742351}
   perfectRadius: 2.5
   distance: 5
@@ -2583,6 +2582,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: cb654a734bdff724f8ca0180044bc697, type: 3}
   - {fileID: 21300000, guid: d0a6ba9348ac9744ca62696bb44029ad, type: 3}
   - {fileID: 0}
+  eraseSpeed: 0.5
 --- !u!212 &1378071333
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2624,7 +2624,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: 21300000, guid: d0a6ba9348ac9744ca62696bb44029ad, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2632,7 +2632,7 @@ SpriteRenderer:
   m_Size: {x: 3, y: 3}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1378071334
