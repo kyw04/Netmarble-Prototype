@@ -15,4 +15,10 @@ public class moveseen : MonoBehaviour
         SceneManager.LoadScene("main");
 
     }
+    public void Onclickbuttonss()
+    {
+
+        SceneManager.LoadScene("main");
+
+    }
 }

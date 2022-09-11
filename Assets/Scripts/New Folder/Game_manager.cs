@@ -5,14 +5,10 @@ using UnityEngine.UI;
 
 public class Game_manager : MonoBehaviour
 {
-    public static int score = 0;
-    public Text scoretext;
-    public Text HighscoreText;
-    private int savedscore = 0;
-    private string keystring = "highscore";
     public int LV = 0;
     public static System.Action target;
     public static System.Action targets;
+
     void Awake()
     {
         target = () => 
@@ -23,22 +19,14 @@ public class Game_manager : MonoBehaviour
         {
             lvss();
         };
-          DontDestroyOnLoad(gameObject);
-        savedscore = PlayerPrefs.GetInt(keystring,0);
-        HighscoreText.text = "high score" + savedscore.ToString("0");
+
+   
+
+        DontDestroyOnLoad(gameObject);
+        
     }
-    void Update()
-    {
-        scoretext.text = "score:" + score.ToString("0");
-        if(score > savedscore)
-        {
-            PlayerPrefs.SetInt(keystring,score);
-        }
-    }
-    public void scoreup()
-    {
-        score++;
-    }
+   
+
 
     public void lv()
     {
@@ -59,6 +47,8 @@ public class Game_manager : MonoBehaviour
         }
 
     }
+
+
     public void asss()
     {
         LV = 0;
