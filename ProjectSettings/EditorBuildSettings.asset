@@ -17,4 +17,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/New Folder/First.unity
     guid: ec390bf1db0b9ea458c7984b7521dd8d
+  - enabled: 1
+    path: Assets/Scenes/Title/Start.unity
+    guid: 7ed7d29b9288843419b8d8297a752074
+  - enabled: 1
+    path: Assets/Scenes/Title/nextnext.unity
+    guid: 34b1304bdeebe544f9fa867f19bb7b2e
   m_configObjects: {}
