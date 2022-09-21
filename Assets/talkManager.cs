@@ -11,27 +11,26 @@ using TMPro;
 public class talkManager : MonoBehaviour
 {
     public GameObject talkPanel;
-    public TextMeshProUGUI text;
+    public TextMeshProUGUI text, textname;
     int clickCount = 0;
     public string SceneToLoad;
+    string a = "girl1", b = "girl2";
 
-    
+
     void Update()
     {
+        
         if (Input.GetMouseButtonDown(0))
         {
             if (clickCount == 0)
             {
-                if (id == 100)
-                {
-                    text.text = "hi.";
-                }
-                else if (id == 200)
-                {
-                    text.text = "Good.";
-                    clickCount++;
-                }
-            } 
+                textname.text = a;
+                text.text = "hi.";
+                clickCount++;
+                textname.text = b;
+                text.text = "Good.";
+                
+            }
             else if (clickCount == 1)
             {
                 SceneManager.LoadScene(SceneToLoad);
