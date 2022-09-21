@@ -876,9 +876,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   talkPanel: {fileID: 458815417}
+  nameTag: {fileID: 0}
   text: {fileID: 316786346}
   textname: {fileID: 2128165646}
   SceneToLoad: main
+  girl1: {fileID: 1008556472}
+  girl2: {fileID: 734710000}
 --- !u!4 &1623014210
 Transform:
   m_ObjectHideFlags: 0
