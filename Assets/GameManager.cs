@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public AudioSource music;
     private bool isMenuSetActive;
 
+
     private void Start()
     {
         isMenuSetActive = false;
