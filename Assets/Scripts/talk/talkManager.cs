@@ -15,6 +15,10 @@ public class talkManager : MonoBehaviour
     int clickCount = 0;
     public string SceneToLoad;
 
+    void start()
+    {
+        text = GetComponent<TextMeshProUGUI>();
+    }
     
     void Update()
     {
@@ -22,17 +26,9 @@ public class talkManager : MonoBehaviour
         {
             if (clickCount == 0)
             {
-                if (id == 100)
-                {
-                    text.text = "hi.";
-                }
-                else if (id == 200)
-                {
-                    text.text = "Good.";
-                    clickCount++;
-                }
-            } 
-            else if (clickCount == 1)
+                text.text = "hi.";
+                clickCount++;
+            } else if (clickCount == 1)
             {
                 SceneManager.LoadScene(SceneToLoad);
             }

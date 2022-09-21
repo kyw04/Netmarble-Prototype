@@ -451,9 +451,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 734710000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f328463e4d62a946958d1663eb7d4be, type: 3}
+  m_Script: {fileID: 11500000, guid: 64019890a77fc4c46ab5ed313354cf7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: 200
 --- !u!114 &734710003
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -645,9 +646,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1008556472}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f328463e4d62a946958d1663eb7d4be, type: 3}
+  m_Script: {fileID: 11500000, guid: 64019890a77fc4c46ab5ed313354cf7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: 100
 --- !u!114 &1008556475
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -872,12 +874,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1623014208}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96c0c86cd5c3b274197b706a42b58a73, type: 3}
+  m_Script: {fileID: 11500000, guid: 67713c2caf27bd044947ac4064eb53d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   talkPanel: {fileID: 458815417}
   text: {fileID: 316786346}
-  textname: {fileID: 2128165646}
   SceneToLoad: main
 --- !u!4 &1623014210
 Transform:
@@ -983,7 +984,7 @@ GameObject:
   - component: {fileID: 2128165647}
   - component: {fileID: 2128165646}
   m_Layer: 5
-  m_Name: Textname
+  m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
