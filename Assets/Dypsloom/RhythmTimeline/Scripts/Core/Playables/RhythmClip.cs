@@ -94,5 +94,6 @@ namespace Dypsloom.RhythmTimeline.Core.Playables
         public string StringParameter => m_StringParameter;
         public float FloatParameter => m_FloatParameter;
         public Object ObjectReferenceParameter => m_ObjectReferenceParameter;
+        public int SecondNote;
     }
 }

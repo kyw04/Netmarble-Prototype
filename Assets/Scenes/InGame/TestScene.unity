@@ -2981,6 +2981,10 @@ PrefabInstance:
       propertyPath: m_OnNoteTriggered.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 5220759278448557766, guid: 19984c7f107318141bc4e5e47640eb90, type: 3}
+      propertyPath: m_Color.a
+      value: 0.34901962
+      objectReference: {fileID: 0}
     - target: {fileID: 9150116701031804199, guid: 19984c7f107318141bc4e5e47640eb90, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -4015,3 +4019,60 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &2308100517663953792
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8785932229308342054, guid: ba80cf53cede8df4b8649fc5861a8c4b, type: 3}
+      propertyPath: m_RootOrder
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 8785932229308342054, guid: ba80cf53cede8df4b8649fc5861a8c4b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8785932229308342054, guid: ba80cf53cede8df4b8649fc5861a8c4b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8785932229308342054, guid: ba80cf53cede8df4b8649fc5861a8c4b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8785932229308342054, guid: ba80cf53cede8df4b8649fc5861a8c4b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.38048238
+      objectReference: {fileID: 0}
+    - target: {fileID: 8785932229308342054, guid: ba80cf53cede8df4b8649fc5861a8c4b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8785932229308342054, guid: ba80cf53cede8df4b8649fc5861a8c4b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8785932229308342054, guid: ba80cf53cede8df4b8649fc5861a8c4b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.9247882
+      objectReference: {fileID: 0}
+    - target: {fileID: 8785932229308342054, guid: ba80cf53cede8df4b8649fc5861a8c4b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8785932229308342054, guid: ba80cf53cede8df4b8649fc5861a8c4b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8785932229308342054, guid: ba80cf53cede8df4b8649fc5861a8c4b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -135.273
+      objectReference: {fileID: 0}
+    - target: {fileID: 8785932229308342055, guid: ba80cf53cede8df4b8649fc5861a8c4b, type: 3}
+      propertyPath: m_Name
+      value: Double Tap Note
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ba80cf53cede8df4b8649fc5861a8c4b, type: 3}
