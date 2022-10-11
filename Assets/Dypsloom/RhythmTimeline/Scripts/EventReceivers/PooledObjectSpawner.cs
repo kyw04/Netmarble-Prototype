@@ -23,11 +23,12 @@
                 spawnedGameObject = PoolManager.Instantiate(m_Prefab, m_Parent);
             }
 
-            if (m_ScheduledDestroy > 0) {
+            if (m_ScheduledDestroy > 0)
+            {
                 SchedulerManager.Schedule(() =>
                 {
                     PoolManager.Destroy(spawnedGameObject);
-                },m_ScheduledDestroy);
+                }, m_ScheduledDestroy);
             }
         }
     }

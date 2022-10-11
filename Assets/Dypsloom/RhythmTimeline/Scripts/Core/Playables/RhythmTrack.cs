@@ -53,7 +53,7 @@ namespace Dypsloom.RhythmTimeline.Core.Playables
                     Debug.LogError("The Rhythm Director is Missing a Track Data for index: "+m_ID);
                     continue;
                 }
-            
+                
                 var clipData = new RhythmClipData(rhythmClip,
                     m_RhythmDirector,
                     m_ID,

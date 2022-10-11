@@ -89,11 +89,12 @@ namespace Dypsloom.RhythmTimeline.Core.Playables
         [SerializeField] protected float m_FloatParameter;
         [Tooltip("The Object parameter.")]
         [SerializeField] protected Object m_ObjectReferenceParameter;
-    
+
         public int IntParameter => m_IntParameter;
         public string StringParameter => m_StringParameter;
         public float FloatParameter => m_FloatParameter;
         public Object ObjectReferenceParameter => m_ObjectReferenceParameter;
-        public int SecondNote;
+
+        public string SecondNoteTag;
     }
 }

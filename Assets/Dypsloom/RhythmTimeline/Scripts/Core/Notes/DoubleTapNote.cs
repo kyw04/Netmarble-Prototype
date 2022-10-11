@@ -16,6 +16,7 @@ namespace Dypsloom.RhythmTimeline.Core.Notes
     public class DoubleTapNote : Note
     {
         public DoubleTapNote secondNote;
+        public string secondNoteTag;
         public bool tapped = false;
         /// <summary>
         /// The note is initialized when it is added to the top of a track.
@@ -26,6 +27,34 @@ namespace Dypsloom.RhythmTimeline.Core.Notes
             base.Initialize(rhythmClipData);
         }
 
+        protected override void Update()
+        {
+            if (m_UpdateWithTimeline) { return; }
+
+            //Debug.Log("time line update dsp"+m_DspGlobalStartTime +" end "+m_DspGlobalEndTime);
+            if (m_ActivateWithClip == false)
+            {
+                if (m_ActiveState == ActiveState.Active && TimeFromDeactivate >= 0)
+                {
+                    DeactivateNote();
+                }
+                else if (m_ActiveState == ActiveState.PreActive && TimeFromActivate >= 0)
+                {
+                    ActivateNote();
+                }
+            }
+
+            HybridUpdate(TimeFromActivate, TimeFromDeactivate);
+
+            if (secondNote == null)
+            {
+                GameObject temp = GameObject.FindGameObjectWithTag(secondNoteTag);
+                if (temp.GetComponent<DoubleTapNote>())
+                {
+                    secondNote = temp.GetComponent<DoubleTapNote>();
+                }
+            }
+        }
         /// <summary>
         /// Reset when the note is returned to the pool.
         /// </summary>
