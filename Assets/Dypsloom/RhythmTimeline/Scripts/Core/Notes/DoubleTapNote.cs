@@ -19,6 +19,8 @@ namespace Dypsloom.RhythmTimeline.Core.Notes
         public string secondNoteTag;
         public bool tapped = false;
         private float spawnTime;
+        private float tapTime = 0;
+        public float resetTime = 0.5f;
         /// <summary>
         /// The note is initialized when it is added to the top of a track.
         /// </summary>
@@ -54,6 +56,9 @@ namespace Dypsloom.RhythmTimeline.Core.Notes
                     }
                 }
             }
+
+            if (tapTime + resetTime < Time.time)
+                tapped = false;
 
             if (m_UpdateWithTimeline) { return; }
 
@@ -118,6 +123,7 @@ namespace Dypsloom.RhythmTimeline.Core.Notes
 
             //The gameobject can be set to active false. It is returned to the pool automatically when reset.
             tapped = true;
+            touchTime = Time.time;
             if (secondNote.tapped)
             {
                 gameObject.SetActive(false);
