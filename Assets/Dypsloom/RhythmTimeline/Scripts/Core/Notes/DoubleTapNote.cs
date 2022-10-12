@@ -17,10 +17,12 @@ namespace Dypsloom.RhythmTimeline.Core.Notes
     {
         public DoubleTapNote secondNote = null;
         public string secondNoteTag;
+        private bool noteOn = true;
         public bool tapped = false;
         private float spawnTime;
         private float tapTime = 0;
         public float resetTime = 0.5f;
+        
         /// <summary>
         /// The note is initialized when it is added to the top of a track.
         /// </summary>
@@ -118,16 +120,22 @@ namespace Dypsloom.RhythmTimeline.Core.Notes
         /// <param name="inputEventData">The input event data.</param>
         public override void OnTriggerInput(InputEventData inputEventData)
         {
+
             //Since this is a tap note, only deal with tap inputs.
             if (!inputEventData.Tap) { return; }
 
             //The gameobject can be set to active false. It is returned to the pool automatically when reset.
             tapped = true;
             tapTime = Time.time;
-            if (secondNote.tapped)
+
+            if (secondNote.tapped && noteOn)
             {
+                noteOn = false;
+                secondNote.noteOn = false;
                 gameObject.SetActive(false);
                 m_IsTriggered = true;
+                secondNote.gameObject.SetActive(false);
+                secondNote.m_IsTriggered = true;
 
                 //You may compute the perfect time anyway you want.
                 //In this case the perfect time is half of the clip.
@@ -137,7 +145,9 @@ namespace Dypsloom.RhythmTimeline.Core.Notes
 
                 //Send a trigger event such that the score system can listen to it.
                 InvokeNoteTriggerEvent(inputEventData, timeDifference, (float)timeDifferencePercentage);
+                secondNote.InvokeNoteTriggerEvent(inputEventData, timeDifference, (float)timeDifferencePercentage);
                 RhythmClipData.TrackObject.RemoveActiveNote(this);
+                RhythmClipData.TrackObject.RemoveActiveNote(secondNote);
             }
         }
 
