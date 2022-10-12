@@ -123,7 +123,7 @@ namespace Dypsloom.RhythmTimeline.Core.Notes
 
             //The gameobject can be set to active false. It is returned to the pool automatically when reset.
             tapped = true;
-            touchTime = Time.time;
+            tapTime = Time.time;
             if (secondNote.tapped)
             {
                 gameObject.SetActive(false);
