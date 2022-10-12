@@ -4,6 +4,17 @@
 /// https://www.dypsloom.com
 /// ---------------------------------------------
 
+public enum LineTag
+{
+    None,
+    Line1,
+    Line2,
+    Line3,
+    Line4,
+    Line5,
+    Line6
+}
+
 namespace Dypsloom.RhythmTimeline.Core.Playables
 {
     using Dypsloom.RhythmTimeline.Core.Managers;
@@ -95,6 +106,8 @@ namespace Dypsloom.RhythmTimeline.Core.Playables
         public float FloatParameter => m_FloatParameter;
         public Object ObjectReferenceParameter => m_ObjectReferenceParameter;
 
-        public string SecondNoteTag;
+        public LineTag NoteTag;
+
+        public LineTag SecondNoteTag;
     }
 }

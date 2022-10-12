@@ -15,9 +15,10 @@ namespace Dypsloom.RhythmTimeline.Core.Notes
     /// </summary>
     public class DoubleTapNote : Note
     {
-        public DoubleTapNote secondNote;
+        public DoubleTapNote secondNote = null;
         public string secondNoteTag;
         public bool tapped = false;
+        private float spawnTime;
         /// <summary>
         /// The note is initialized when it is added to the top of a track.
         /// </summary>
@@ -27,8 +28,33 @@ namespace Dypsloom.RhythmTimeline.Core.Notes
             base.Initialize(rhythmClipData);
         }
 
+        protected override void Start()
+        {
+            gameObject.tag = m_RhythmClipData.ClipParameters.NoteTag.ToString();
+            secondNoteTag = m_RhythmClipData.ClipParameters.SecondNoteTag.ToString();
+            spawnTime = Time.time;
+        }
+
         protected override void Update()
         {
+            if (secondNote == null)
+            {
+                Debug.Log("Search");
+                GameObject[] temp = GameObject.FindGameObjectsWithTag(secondNoteTag);
+                for (int i = 0; i < temp.Length; i++)
+                {
+                    if (temp[i].GetComponent<DoubleTapNote>())
+                    {
+                        DoubleTapNote doubleTapNote = temp[i].GetComponent<DoubleTapNote>();
+                        if (doubleTapNote && doubleTapNote.spawnTime + 0.5f >= Time.time)
+                        {
+                            Debug.Log("Found Note");
+                            secondNote = temp[i].GetComponent<DoubleTapNote>();
+                        }
+                    }
+                }
+            }
+
             if (m_UpdateWithTimeline) { return; }
 
             //Debug.Log("time line update dsp"+m_DspGlobalStartTime +" end "+m_DspGlobalEndTime);
@@ -45,15 +71,6 @@ namespace Dypsloom.RhythmTimeline.Core.Notes
             }
 
             HybridUpdate(TimeFromActivate, TimeFromDeactivate);
-
-            if (secondNote == null)
-            {
-                GameObject temp = GameObject.FindGameObjectWithTag(secondNoteTag);
-                if (temp.GetComponent<DoubleTapNote>())
-                {
-                    secondNote = temp.GetComponent<DoubleTapNote>();
-                }
-            }
         }
         /// <summary>
         /// Reset when the note is returned to the pool.

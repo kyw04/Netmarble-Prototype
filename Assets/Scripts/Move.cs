@@ -27,10 +27,10 @@ public class Move : MonoBehaviour
 
     void Update()
     {
-        if (GameObject.FindGameObjectWithTag("BigNote"))
-            isMove = true;
-        else
-            isMove = false;
+        //if (GameObject.FindGameObjectWithTag("BigNote"))
+        //    isMove = true;
+        //else
+        //    isMove = false;
 
         if (Input.touchCount >= 1 && isMove)
         {
