@@ -61,7 +61,7 @@ namespace Dypsloom.RhythmTimeline.Core.Managers
 
         private void Start()
         {
-            OpenSongChooser();
+            PlaySong(0);
             m_RhythmDirector.OnSongEnd += OnSongEnd;
             if (m_PauseButton != null) {
                 m_PauseButton.onClick.AddListener(TogglePause);
@@ -94,7 +94,7 @@ namespace Dypsloom.RhythmTimeline.Core.Managers
 
         public void PlaySong(RhythmTimelineAsset song)
         {
-            m_GameplayPanel?.SetActive(true);
+            //m_GameplayPanel?.SetActive(true);
             m_SelectedSong = song;
             m_RhythmDirector.PlaySong(song);
             StartTimer();
