@@ -55,7 +55,7 @@ namespace Dypsloom.RhythmTimeline.UI
         {
             Close();
             //m_RhythmGameManager.SongChooser.Open(m_RhythmGameManager);
-            SceneManager.LoadScene("main");
+            SceneManager.LoadScene("Scenes/InGame/TestScene");
         }
 
         public void Close()

@@ -79,32 +79,21 @@ namespace Dypsloom.RhythmTimeline.Core.Notes
 
             HybridUpdate(TimeFromActivate, TimeFromDeactivate);
         }
-        /// <summary>
-        /// Reset when the note is returned to the pool.
-        /// </summary>
+
         public override void Reset()
         {
             base.Reset();
         }
 
-        /// <summary>
-        /// The note needs to be activated as it is within range of being triggered.
-        /// This usually happens when the clip starts.
-        /// </summary>
         protected override void ActivateNote()
         {
             base.ActivateNote();
         }
 
-        /// <summary>
-        /// The note needs to be deactivated when it is out of range from being triggered.
-        /// This usually happens when the clip ends.
-        /// </summary>
         protected override void DeactivateNote()
         {
             base.DeactivateNote();
 
-            //Only send the trigger miss event during play mode.
             if (Application.isPlaying == false) { return; }
 
             if (m_IsTriggered == false)
