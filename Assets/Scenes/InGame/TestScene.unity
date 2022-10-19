@@ -260,7 +260,7 @@ MonoBehaviour:
   m_Songs:
   - {fileID: 11400000, guid: f0d1a7fd5958c8b448a074e9042495ec, type: 2}
   - {fileID: 11400000, guid: e48d10406c3f0804d9c939224fd16b19, type: 2}
-  m_GameplayPanel: {fileID: 0}
+  m_GameplayPanel: {fileID: 3843263972521280486}
   m_SongChooser: {fileID: 0}
   m_EndScorePanel: {fileID: 5418257556940368004}
   m_PauseMenu: {fileID: 5548817345079093409}

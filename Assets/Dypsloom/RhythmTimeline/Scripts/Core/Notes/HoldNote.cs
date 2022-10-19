@@ -21,6 +21,7 @@ namespace Dypsloom.RhythmTimeline.Core.Notes
         [SerializeField] protected Transform m_EndNote;
         [Tooltip("The line rendrer used to connect the start and end note.")]
         [SerializeField] protected LineRenderer m_LineRenderer;
+        [SerializeField] protected LineRenderer m_OutLineRenderer;
         [Tooltip("The color of the line when activated.")]
         [SerializeField] protected Color m_ActiveLineColor = Color.green;
         [Tooltip("The hold not will automatically release when it reaches perfect.")]
@@ -42,6 +43,7 @@ namespace Dypsloom.RhythmTimeline.Core.Notes
             base.Initialize(rhythmClipData);
             m_Holding = false;
             m_LineRenderer.positionCount = 2;
+            m_OutLineRenderer.positionCount = 2;
             m_StartLineColor = m_LineRenderer.startColor;
             m_StartHoldTimeOffset = 0;
         }
@@ -81,6 +83,8 @@ namespace Dypsloom.RhythmTimeline.Core.Notes
         {
             m_LineRenderer.SetPosition(0, m_StartNote.transform.localPosition);
             m_LineRenderer.SetPosition(1, m_EndNote.transform.localPosition);
+            m_OutLineRenderer.SetPosition(0, m_StartNote.transform.localPosition);
+            m_OutLineRenderer.SetPosition(1, m_EndNote.transform.localPosition);
         }
 
         /// <summary>
@@ -90,7 +94,7 @@ namespace Dypsloom.RhythmTimeline.Core.Notes
         protected override void ActivateNote()
         {
             base.ActivateNote();
-            m_LineRenderer.startColor = m_ActiveLineColor;
+            //m_LineRenderer.startColor = m_ActiveLineColor;
         }
     
         /// <summary>
