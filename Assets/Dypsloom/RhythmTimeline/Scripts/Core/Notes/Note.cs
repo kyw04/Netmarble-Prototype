@@ -256,6 +256,7 @@ namespace Dypsloom.RhythmTimeline.Core.Notes
 		{
 			m_NoteTriggerEventData.SetMiss();
 			InvokeNoteTriggerEvent();
+			Player.Instance.OnDamaged(1);
 		}
 	
 		/// <summary>

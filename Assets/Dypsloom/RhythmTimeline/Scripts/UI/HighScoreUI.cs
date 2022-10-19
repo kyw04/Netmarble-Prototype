@@ -28,9 +28,9 @@ namespace Dypsloom.RhythmTimeline.UI
             m_RankImage.sprite = scoreData.Rank?.icon;
             m_MaxChainTmp.text = scoreData.MaxChain.ToString();
 
-            for (int i = 0; i < m_AccuracyUi.Length; i++) {
-                m_AccuracyUi[i].SetAccuracyCount(ScoreManager.Instance.ScoreSettings.OrderedAccuracyTable[i].icon, scoreData.NoteAccuracyIDCounts[i]);
-            }
+            //for (int i = 0; i < m_AccuracyUi.Length; i++) {
+            //    m_AccuracyUi[i].SetAccuracyCount(ScoreManager.Instance.ScoreSettings.OrderedAccuracyTable[i].icon, scoreData.NoteAccuracyIDCounts[i]);
+            //}
         }
     }
 }

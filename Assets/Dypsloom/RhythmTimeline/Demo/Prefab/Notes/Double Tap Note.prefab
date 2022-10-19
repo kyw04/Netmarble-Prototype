@@ -432,7 +432,10 @@ MonoBehaviour:
   m_SetActiveWhileClipActive: {fileID: 8621235729404262621}
   secondNote: {fileID: 0}
   secondNoteTag: 
+  noteOn: 1
+  miss: 0
   tapped: 0
+  spawnTime: 0
   resetTime: 0.5
 --- !u!1 &9208455642891610625
 GameObject:

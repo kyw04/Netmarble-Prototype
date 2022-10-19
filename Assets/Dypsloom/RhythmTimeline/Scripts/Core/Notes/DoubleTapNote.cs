@@ -15,14 +15,15 @@ namespace Dypsloom.RhythmTimeline.Core.Notes
     /// </summary>
     public class DoubleTapNote : Note
     {
-        public DoubleTapNote secondNote = null;
-        public string secondNoteTag;
+        private DoubleTapNote secondNote = null;
+        private string secondNoteTag;
         private bool noteOn = true;
-        public bool tapped = false;
+        private bool miss = false;
+        private bool tapped = false;
         private float spawnTime;
         private float tapTime = 0;
         public float resetTime = 0.5f;
-        
+
         /// <summary>
         /// The note is initialized when it is added to the top of a track.
         /// </summary>
@@ -30,10 +31,6 @@ namespace Dypsloom.RhythmTimeline.Core.Notes
         public override void Initialize(RhythmClipData rhythmClipData)
         {
             base.Initialize(rhythmClipData);
-        }
-
-        protected override void Start()
-        {
             gameObject.tag = m_RhythmClipData.ClipParameters.NoteTag.ToString();
             secondNoteTag = m_RhythmClipData.ClipParameters.SecondNoteTag.ToString();
             spawnTime = Time.time;
@@ -82,6 +79,12 @@ namespace Dypsloom.RhythmTimeline.Core.Notes
 
         public override void Reset()
         {
+            secondNote = null;
+            noteOn = true;
+            tapped = false;
+            tapTime = 0;
+            miss = false;
+          
             base.Reset();
         }
 
@@ -100,6 +103,12 @@ namespace Dypsloom.RhythmTimeline.Core.Notes
             {
                 InvokeNoteTriggerEventMiss();
             }
+
+            secondNote = null;
+            noteOn = true;
+            tapped = false;
+            tapTime = 0;
+            miss = false;
         }
 
         /// <summary>
@@ -119,10 +128,14 @@ namespace Dypsloom.RhythmTimeline.Core.Notes
 
             if (secondNote.tapped && noteOn)
             {
+                Player.Instance.SetHP();
+
                 noteOn = false;
                 secondNote.noteOn = false;
+
                 gameObject.SetActive(false);
                 m_IsTriggered = true;
+
                 secondNote.gameObject.SetActive(false);
                 secondNote.m_IsTriggered = true;
 
@@ -162,6 +175,16 @@ namespace Dypsloom.RhythmTimeline.Core.Notes
             //Using those parameters we can easily compute the new position of the note at any time.
             var newPosition = targetPosition + (direction * distance);
             transform.position = newPosition;
+        }
+        protected override void InvokeNoteTriggerEventMiss()
+        {
+            if (miss) { return; }
+
+            miss = true;
+            secondNote.miss = true;
+            m_NoteTriggerEventData.SetMiss();
+            InvokeNoteTriggerEvent();
+            Player.Instance.OnDamaged(1);
         }
     }
 }

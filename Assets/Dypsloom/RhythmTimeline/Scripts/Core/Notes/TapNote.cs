@@ -67,6 +67,7 @@ namespace Dypsloom.RhythmTimeline.Core.Notes
             //Since this is a tap note, only deal with tap inputs.
             if (!inputEventData.Tap) { return; }
 
+            Player.Instance.SetHP();
             //The gameobject can be set to active false. It is returned to the pool automatically when reset.
             gameObject.SetActive(false);
             m_IsTriggered = true;

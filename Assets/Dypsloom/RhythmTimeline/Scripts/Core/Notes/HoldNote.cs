@@ -119,6 +119,9 @@ namespace Dypsloom.RhythmTimeline.Core.Notes
         public override void OnTriggerInput(InputEventData inputEventData)
         {
             if (inputEventData.Tap) {
+
+                Player.Instance.SetHP();
+
                 m_Holding = true;
             
                 m_StartNote.position = m_RhythmClipData.TrackObject.EndPoint.position;

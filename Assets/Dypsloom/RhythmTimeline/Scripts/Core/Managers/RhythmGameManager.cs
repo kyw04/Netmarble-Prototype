@@ -62,6 +62,10 @@ namespace Dypsloom.RhythmTimeline.Core.Managers
         private void Start()
         {
             PlaySong(0);
+            if (AudioListener.pause)
+            {
+                UnPause();
+            }
             m_RhythmDirector.OnSongEnd += OnSongEnd;
             if (m_PauseButton != null) {
                 m_PauseButton.onClick.AddListener(TogglePause);
@@ -158,6 +162,14 @@ namespace Dypsloom.RhythmTimeline.Core.Managers
             Time.timeScale = 1;
             AudioListener.pause = false;
             m_RhythmDirector.UnPause();
+        }
+
+        public void GameOver()
+        {
+            m_Paused = true;
+            Time.timeScale = 0;
+            AudioListener.pause = true;
+            m_RhythmDirector.Pause();
         }
     
         public void EndSong()
