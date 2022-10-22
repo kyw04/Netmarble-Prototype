@@ -890,6 +890,7 @@ GameObject:
   - component: {fileID: 602055333}
   - component: {fileID: 602055332}
   - component: {fileID: 602055336}
+  - component: {fileID: 602055337}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -968,6 +969,18 @@ MonoBehaviour:
   - {fileID: 528202899}
   - {fileID: 1654596830}
   gameOverPlane: {fileID: 845886703}
+--- !u!114 &602055337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 602055329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16a9dfd789041cb49b89bd3b93e8bfca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &656010784
 GameObject:
   m_ObjectHideFlags: 0
@@ -2471,6 +2484,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1903276512}
   - component: {fileID: 1903276513}
+  - component: {fileID: 1903276514}
   m_Layer: 6
   m_Name: Sprite
   m_TagString: Untagged
@@ -2545,6 +2559,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1903276514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1903276511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16a9dfd789041cb49b89bd3b93e8bfca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1911659274
 GameObject:
   m_ObjectHideFlags: 0
