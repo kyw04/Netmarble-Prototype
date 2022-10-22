@@ -26,16 +26,28 @@ public class Player_move : MonoBehaviour
         {
             Vector2 touchDeltaPosition = Input.GetTouch(0).position - Input.GetTouch(0).rawPosition;
 
-            if (touchDeltaPosition.x > 0.11)
+            if (touchDeltaPosition.x > 0)
             {
-                if (touchDeltaPosition.y > -7.33)
+                if (touchDeltaPosition.y > 0)
                 {
                     anim.SetBool("isOne", true);
                     spriteRenderer.flipX = true;
                 }
-                else
+                else if (touchDeltaPosition.y < 0)
                 {
-                    anim.SetBool("isOne", false);
+                    anim.SetBool("isThree", true);
+                    spriteRenderer.flipX = true;
+                }
+            }
+            else if (touchDeltaPosition.x < 0)
+            {
+                if (touchDeltaPosition.y > 0)
+                {
+                    anim.SetBool("isOne", true);
+                }
+                else if (touchDeltaPosition.y < 0)
+                {
+                    anim.SetBool("isThree", true);
                 }
             }
         }
