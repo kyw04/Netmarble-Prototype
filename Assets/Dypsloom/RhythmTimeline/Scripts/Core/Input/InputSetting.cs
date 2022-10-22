@@ -5,7 +5,7 @@ using UnityEngine;
 public class InputSetting : MonoBehaviour
 {
     public BoxCollider[] inputBox;
-    public GameObject[] touchFeedback;
+    public TouchFeedback[] touchFeedback;
     private Camera mainCamera;
     private float sizeY;
     private float sizeX;
@@ -26,14 +26,40 @@ public class InputSetting : MonoBehaviour
         {
             float posX = i / 3 == 0 ? -1 : 1;
             posX *= sizeX / 2f;
-            float posY = (i % 3 - 1) * sizeY * -1;
+            float posY = (i % 3 - 1) * sizeY;
             position = new Vector3(posX, posY, 0);
 
             inputBox[i].transform.position = position;
-            touchFeedback[i].transform.position = position;
 
             inputBox[i].size = boxSize;
-            touchFeedback[i].transform.localScale = boxSize;
+            touchFeedback[i].transform.GetChild(0).localScale = boxSize;
         }
     }
+
+    //public void Update()
+    //{
+    //    if (Input.GetMouseButton(0))
+    //    {
+    //        int index;
+    //        Vector2 mousePosition = Input.mousePosition;
+
+    //        index = mousePosition.x < Screen.width / 2 ? 0 : 3;
+    //        float height = Screen.height / 3;
+
+    //        if (mousePosition.y < height)
+    //        {
+    //            index += 2;
+    //        }
+    //        else if (mousePosition.y < height * 2)
+    //        {
+    //            index += 1;
+    //        }
+    //        else
+    //        {
+    //            index += 0;
+    //        }
+
+    //        touchFeedback[index].TouchFeedbackStart();
+    //    }
+    //}
 }

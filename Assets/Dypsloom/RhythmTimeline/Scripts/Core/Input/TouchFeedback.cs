@@ -17,23 +17,18 @@ public class TouchFeedback : MonoBehaviour
 
     public void TouchFeedbackStart()
     {
-        child.SetActive(true);
         if (enumerator == null)
         {
             enumerator = TouchFeedbackActive(inactiveTime);
-            StartCoroutine(enumerator);
-        }
-        else
-        {
-            StopCoroutine(enumerator);
             StartCoroutine(enumerator);
         }
     }
 
     private IEnumerator TouchFeedbackActive(float t)
     {
+        child.SetActive(true);
         yield return new WaitForSeconds(t);
         child.SetActive(false);
-        child = null;
+        enumerator = null;
     }
 }
