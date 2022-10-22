@@ -362,8 +362,9 @@ namespace Dypsloom.RhythmTimeline.Core.Input
                 for (int i = 0; i < tackObjects.Length; i++) {
                     if (hit.collider != tackObjects[i].TouchCollider2D) { continue; }
 
+                    touchFeedback[i].TouchFeedbackStart();
+                    
                     return m_TrackInputEventData[i];
-
                 }
 
                 return null;
@@ -373,8 +374,7 @@ namespace Dypsloom.RhythmTimeline.Core.Input
 
             for (int i = 0; i < tackObjects.Length; i++) {
                 if (hitInfo.collider != tackObjects[i].TouchCollider3D) { continue; }
-
-                Debug.Log(i);
+                
                 touchFeedback[i].TouchFeedbackStart();
 
                 return m_TrackInputEventData[i];

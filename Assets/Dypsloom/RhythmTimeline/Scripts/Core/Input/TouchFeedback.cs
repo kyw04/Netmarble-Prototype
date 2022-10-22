@@ -17,6 +17,7 @@ public class TouchFeedback : MonoBehaviour
 
     public void TouchFeedbackStart()
     {
+        child.SetActive(true);
         if (enumerator == null)
         {
             enumerator = TouchFeedbackActive(inactiveTime);
@@ -31,7 +32,6 @@ public class TouchFeedback : MonoBehaviour
 
     private IEnumerator TouchFeedbackActive(float t)
     {
-        child.SetActive(true);
         yield return new WaitForSeconds(t);
         child.SetActive(false);
         child = null;
