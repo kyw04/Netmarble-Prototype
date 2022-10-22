@@ -139,8 +139,6 @@ namespace Dypsloom.RhythmTimeline.Core.Input
         protected Dictionary<int, Vector2> m_TouchEndedPosition;
         protected Dictionary<int, int> m_TouchToTrackMap;
 
-        public TouchFeedback[] touchFeedback;
-
         protected virtual void Awake()
         {
             m_Camera = Camera.main;
@@ -362,8 +360,6 @@ namespace Dypsloom.RhythmTimeline.Core.Input
                 for (int i = 0; i < tackObjects.Length; i++) {
                     if (hit.collider != tackObjects[i].TouchCollider2D) { continue; }
 
-                    touchFeedback[i].TouchFeedbackStart();
-                    
                     return m_TrackInputEventData[i];
                 }
 
@@ -375,8 +371,6 @@ namespace Dypsloom.RhythmTimeline.Core.Input
             for (int i = 0; i < tackObjects.Length; i++) {
                 if (hitInfo.collider != tackObjects[i].TouchCollider3D) { continue; }
                 
-                touchFeedback[i].TouchFeedbackStart();
-
                 return m_TrackInputEventData[i];
             }
 

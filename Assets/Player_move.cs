@@ -8,47 +8,45 @@ using UnityEngine.UI;
 
 public class Player_move : MonoBehaviour
 {
+    private SpriteRenderer spriteRenderer;
+    private Animator anim;
+    private float startScale;
+    //private Vector2 sceneSize;
 
-    SpriteRenderer spriteRenderer;
-    Animator anim;
-
-    // Start is called before the first frame update
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
+        startScale = transform.localScale.x;
+
+        //sceneSize = new Vector2(Screen.width, Screen.height);
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (Input.touchCount >= 1)
+        if (Input.GetMouseButton(0))
         {
-            Vector2 touchDeltaPosition = Input.GetTouch(0).position - Input.GetTouch(0).rawPosition;
+            //Vector2 touchDeltaPosition = Input.GetTouch(0).position - Input.GetTouch(0).rawPosition;
+            Vector2 mousePosition = Input.mousePosition;
+            Debug.Log(mousePosition.ToString() + (Screen.height / 3).ToString());
 
-            if (touchDeltaPosition.x > 0)
+            int direction = mousePosition.x < Screen.width / 2 ? 1 : -1; // 오른쪽 왼쪽 판별
+            transform.localScale = new Vector3(direction * startScale, startScale, startScale); // 방향 변경
+            float height = Screen.height / 3;
+
+            
+
+            if (mousePosition.y < height)
             {
-                if (touchDeltaPosition.y > 0)
-                {
-                    anim.SetBool("isOne", true);
-                    spriteRenderer.flipX = true;
-                }
-                else if (touchDeltaPosition.y < 0)
-                {
-                    anim.SetBool("isThree", true);
-                    spriteRenderer.flipX = true;
-                }
+                anim.SetFloat("Blend", 1f);
             }
-            else if (touchDeltaPosition.x < 0)
+            else if (mousePosition.y < height * 2)
             {
-                if (touchDeltaPosition.y > 0)
-                {
-                    anim.SetBool("isOne", true);
-                }
-                else if (touchDeltaPosition.y < 0)
-                {
-                    anim.SetBool("isThree", true);
-                }
+                anim.SetFloat("Blend", 0.5f);
+            }
+            else
+            {
+                anim.SetFloat("Blend", 0f);
             }
         }
     }

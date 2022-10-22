@@ -9,6 +9,7 @@ public class InputSetting : MonoBehaviour
     private Camera mainCamera;
     private float sizeY;
     private float sizeX;
+
     void Start()
     {
         mainCamera = Camera.main;
