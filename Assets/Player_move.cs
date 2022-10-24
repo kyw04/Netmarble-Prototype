@@ -28,7 +28,7 @@ public class Player_move : MonoBehaviour
         {
             //Vector2 touchDeltaPosition = Input.GetTouch(0).position - Input.GetTouch(0).rawPosition;
             Vector2 mousePosition = Input.mousePosition;
-            Debug.Log(mousePosition.ToString() + (Screen.height / 3).ToString());
+            //Debug.Log(mousePosition.ToString() + (Screen.height / 3).ToString());
 
             int direction = mousePosition.x < Screen.width / 2 ? 1 : -1; // 오른쪽 왼쪽 판별
             transform.localScale = new Vector3(direction * startScale, startScale, startScale); // 방향 변경

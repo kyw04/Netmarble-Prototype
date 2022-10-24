@@ -258,8 +258,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Songs:
-  - {fileID: 11400000, guid: e4a983381d5770f4b99d64ed1a303319, type: 2}
-  - {fileID: 11400000, guid: e48d10406c3f0804d9c939224fd16b19, type: 2}
+  - {fileID: 11400000, guid: d8bbd5a15a6fb114b8fb8335ec8024e2, type: 2}
   m_GameplayPanel: {fileID: 3843263972521280486}
   m_SongChooser: {fileID: 0}
   m_EndScorePanel: {fileID: 5418257556940368004}
