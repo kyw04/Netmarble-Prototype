@@ -7,31 +7,25 @@ public class Player : MonoBehaviour
 {
     public static Player Instance { get; private set; }
     public RhythmGameManager gameManager;
-    public GameObject[] HPSprites;
+    public Image HPSprite;
     public GameObject gameOverPlane;
-    private int currentHP;
-    private int index;
-    private int maxHP = 3;
+    private float currentHP;
+    private float maxHP = 10;
 
     private void Awake()
-    {
-        Instance = this;
+    {   
+        if (Instance == null)
+            Instance = this;
     }
 
     private void Start()
     {
-        maxHP = HPSprites.Length;
         SetHP();
     }
 
     public void OnDamaged(int damage)
     {
         currentHP -= damage;
-
-        for (int i = 0; i < damage && index >= 0; i++)
-        {
-            HPSprites[index--].SetActive(false);
-        }
 
         if (currentHP <= 0)
         {
@@ -40,15 +34,26 @@ public class Player : MonoBehaviour
             gameManager.GameOver();
             gameOverPlane.SetActive(true);
         }
+
+        HPSprite.fillAmount = currentHP / maxHP;
     }
 
     public void SetHP()
     {
         currentHP = maxHP;
-        index = maxHP - 1;
-        for (int i = 0; i < maxHP; i++)
-        {
-            HPSprites[i].SetActive(true);
-        }
+        HPSprite.fillAmount = 1;
     }
+
+    public void Heal(int value)
+    {
+        currentHP += value;
+
+        if (currentHP > maxHP)
+        {
+            currentHP = maxHP;
+        }
+
+        HPSprite.fillAmount = currentHP / maxHP;
+    }
+
 }

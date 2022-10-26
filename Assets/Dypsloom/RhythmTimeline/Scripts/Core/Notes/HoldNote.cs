@@ -120,7 +120,7 @@ namespace Dypsloom.RhythmTimeline.Core.Notes
         {
             if (inputEventData.Tap) {
 
-                Player.Instance.SetHP();
+                Player.Instance.Heal(1);
 
                 m_Holding = true;
             

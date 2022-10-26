@@ -128,7 +128,7 @@ namespace Dypsloom.RhythmTimeline.Core.Notes
 
             if (secondNote.tapped && noteOn)
             {
-                Player.Instance.SetHP();
+                Player.Instance.Heal(1);
 
                 noteOn = false;
                 secondNote.noteOn = false;
