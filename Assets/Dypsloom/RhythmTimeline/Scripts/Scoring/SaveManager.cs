@@ -46,11 +46,13 @@
             m_ScoreManager = Toolbox.Get<ScoreManager>();
             m_GameManager = Toolbox.Get<RhythmGameManager>();
 
-            if (m_SaveOnNewHighScore) {
+            if (m_SaveOnNewHighScore)
+            {
                 m_ScoreManager.OnNewHighScore += HandleOnSongEnd;
             }
-            
-            if (m_LoadOnStart) {
+
+            if (m_LoadOnStart)
+            {
                 Toolbox.Get<SaveManager>()?.LoadSaveData();
             }
         }
@@ -81,12 +83,14 @@
         [ContextMenu("Reset All Song High Scores")]
         public void ResetAllSongHighScores()
         {
-            if (m_GameManager == null) {
+            if (m_GameManager == null)
+            {
                 m_GameManager = GetComponent<RhythmGameManager>();
-                if(m_GameManager == null){return;}
+                if (m_GameManager == null) { return; }
             }
 
-            for (int i = 0; i < m_GameManager.Songs.Length; i++) {
+            for (int i = 0; i < m_GameManager.Songs.Length; i++)
+            {
                 m_GameManager.Songs[i]?.SetHighScore(new ScoreData());
             }
         }
@@ -97,15 +101,17 @@
         [ContextMenu("Save All Songs To File")]
         public void SaveAllSongsToFile()
         {
-            if (m_GameManager == null) {
+            if (m_GameManager == null)
+            {
                 m_GameManager = GetComponent<RhythmGameManager>();
-                if(m_GameManager == null){return;}
+                if (m_GameManager == null) { return; }
             }
 
-            if (m_SaveData == null) {
+            if (m_SaveData == null)
+            {
                 m_SaveData = new SaveData();
             }
-            
+
             m_SaveData.SaveSongs(m_GameManager.Songs);
             SaveToDiskInternal();
         }
@@ -113,11 +119,12 @@
         [ContextMenu("Load Save File")]
         public void LoadSaveData()
         {
-            if (m_GameManager == null) {
+            if (m_GameManager == null)
+            {
                 m_GameManager = GetComponent<RhythmGameManager>();
-                if(m_GameManager == null){return;}
+                if (m_GameManager == null) { return; }
             }
-            
+
             //Load
             LoadInternal();
         }
@@ -158,7 +165,7 @@
             FileStream file = File.Open(saveFilePath, FileMode.Open);
             JsonUtility.FromJsonOverwrite((string)bf.Deserialize(file), saveData);
             file.Close();
-            
+
             m_SaveData = saveData;
         }
 
@@ -170,7 +177,7 @@
         {
             return Application.persistentDataPath;
         }
-        
+
         /// <summary>
         /// Get the save file path.
         /// </summary>
@@ -180,7 +187,7 @@
             return string.Format("{0}/{1}.save",
                 GetSaveFolderPath(), m_SaveFileName);
         }
-        
+
         /// <summary>
         /// Save to disk.
         /// </summary>
@@ -190,7 +197,7 @@
 
             BinaryFormatter bf = new BinaryFormatter();
             FileStream file = File.Create(saveFilePath);
-            
+
             var json = JsonUtility.ToJson(m_SaveData);
 
             //Save binary file
@@ -203,7 +210,7 @@
             Debug.Log("You are making a Debug Json Copy of the save file at the path: " + jsonFilePath);
             CreateDebugSaveFile(jsonFilePath, m_SaveData);
         }
-        
+
         /// <summary>
         /// Create a Text Save File.
         /// </summary>
@@ -217,12 +224,13 @@
             var standardSaveDataJson = JsonUtility.ToJson(saveData, true);
 
             //Create the file.
-            using (FileStream fs = File.Create(filePath)) {
+            using (FileStream fs = File.Create(filePath))
+            {
                 //Write the Entire save file
                 WriteToFile(fs, standardSaveDataJson);
             }
         }
-        
+
         /// <summary>
         /// Write to a file.
         /// </summary>
@@ -234,7 +242,7 @@
             fs.Write(info, 0, info.Length);
         }
     }
-    
+
     [Serializable]
     public class SaveData
     {
@@ -245,10 +253,11 @@
         public void SaveSongs(RhythmTimelineAsset[] songs)
         {
             ClearSave();
-            for (int i = 0; i < songs.Length; i++) {
+            for (int i = 0; i < songs.Length; i++)
+            {
                 var song = songs[i];
-                if(song == null){ continue; }
-                
+                if (song == null) { continue; }
+
                 var songSaveData = new SongSaveData(song);
                 m_SongSaveData.Add(songSaveData);
             }
@@ -261,9 +270,11 @@
 
         public void SaveSong(RhythmTimelineAsset song)
         {
-            for (int i = 0; i < m_SongSaveData.Count; i++) {
+            for (int i = 0; i < m_SongSaveData.Count; i++)
+            {
                 var save = m_SongSaveData[i];
-                if (save.SongName == song.FullName) {
+                if (save.SongName == song.FullName)
+                {
                     save.SaveSong(song);
                     return;
                 }
@@ -275,18 +286,21 @@
 
         public void LoadSongSave(RhythmTimelineAsset[] songs)
         {
-            for (int i = 0; i < m_SongSaveData.Count; i++) {
+            for (int i = 0; i < m_SongSaveData.Count; i++)
+            {
                 var saveData = m_SongSaveData[i];
-                
-                for (int j = 0; j < songs.Length; j++) {
+
+                for (int j = 0; j < songs.Length; j++)
+                {
                     var song = songs[j];
 
-                    if (saveData.SongName == song.FullName) {
+                    if (saveData.SongName == song.FullName)
+                    {
                         saveData.Load(song);
                         break;
                     }
                 }
-                
+
             }
         }
     }
@@ -305,13 +319,13 @@
             m_SongName = "";
             m_ScoreData = null;
         }
-        
+
         public SongSaveData(RhythmTimelineAsset song)
         {
             m_SongName = song.FullName;
             m_ScoreData = song.HighScore;
         }
-        
+
         public void SaveSong(RhythmTimelineAsset song)
         {
             m_SongName = song.FullName;
