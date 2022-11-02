@@ -61,8 +61,8 @@ namespace Dypsloom.RhythmTimeline.UI
       
          UpdateVisual();
       
-         m_AudioSource.clip = m_SelectedSong.AudioClip;
-         PlayPreviewClip();
+         //m_AudioSource.clip = m_SelectedSong.AudioClip;
+         //PlayPreviewClip();
       }
 
       private void UpdateVisual()
@@ -84,13 +84,13 @@ namespace Dypsloom.RhythmTimeline.UI
          m_AudioSource.Stop();
       }
 
-      private void Update()
-      {
-         if (m_AudioSource.isPlaying) {
-            if (m_AudioSource.time > m_PreviewLength) {
-               m_AudioSource.Play(0);
-            }
-         }
-      }
+      //private void Update()
+      //{
+      //   if (m_AudioSource.isPlaying) {
+      //      if (m_AudioSource.time > m_PreviewLength) {
+      //         m_AudioSource.Play(0);
+      //      }
+      //   }
+      //}
    }
 }

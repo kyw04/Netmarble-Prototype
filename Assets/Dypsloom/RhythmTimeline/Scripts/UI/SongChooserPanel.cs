@@ -43,7 +43,8 @@ namespace Dypsloom.RhythmTimeline.UI
             PopulateScrollView();
             m_SelectedSongPanel.Open(this);
             m_SelectedSongPanel.SetSelectedSong(m_RhythmGameManager.Songs[m_SelectedIndex]);
-            gameObject.SetActive(true);
+            //gameObject.SetActive(true);
+            PlaySelectedSong();
         }
 
         public void PopulateScrollView()
@@ -91,7 +92,7 @@ namespace Dypsloom.RhythmTimeline.UI
 
         public void PlaySelectedSong()
         {
-            m_SelectedSongPanel.StopPreviewClip();
+            //m_SelectedSongPanel.StopPreviewClip();
             m_RhythmGameManager.PlaySong(m_RhythmGameManager.Songs[m_SelectedIndex]);
             Close();
         }

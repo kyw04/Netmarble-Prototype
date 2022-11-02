@@ -61,8 +61,8 @@ namespace Dypsloom.RhythmTimeline.Core.Managers
 
         private void Start()
         {
-            PlaySong(0);
-
+            //PlaySong(0);
+            OpenSongChooser();
             if (AudioListener.pause)
             {
                 UnPause();
@@ -90,7 +90,7 @@ namespace Dypsloom.RhythmTimeline.Core.Managers
         private void OpenSongChooser()
         {
             m_SongChooser.Open(this);
-            m_GameplayPanel?.SetActive(false);
+            //m_GameplayPanel?.SetActive(false);
         }
 
         public void PlaySong(int index)

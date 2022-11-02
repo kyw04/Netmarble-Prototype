@@ -67,7 +67,7 @@ namespace Dypsloom.RhythmTimeline.Core.Notes
             //Since this is a tap note, only deal with tap inputs.
             if (!inputEventData.Tap) { return; }
 
-            Player.Instance.Heal(1);
+            //Player.Instance.Heal(1);
             //The gameobject can be set to active false. It is returned to the pool automatically when reset.
             gameObject.SetActive(false);
             m_IsTriggered = true;
@@ -76,7 +76,7 @@ namespace Dypsloom.RhythmTimeline.Core.Notes
             //In this case the perfect time is half of the clip.
             var perfectTime = m_RhythmClipData.RealDuration / 2f;
             var timeDifference = TimeFromActivate - perfectTime;
-            var timeDifferencePercentage =  Mathf.Abs((float)(100f*timeDifference)) / perfectTime;
+            var timeDifferencePercentage = Mathf.Abs((float)(100f*timeDifference)) / perfectTime;
             
             //Send a trigger event such that the score system can listen to it.
             InvokeNoteTriggerEvent(inputEventData, timeDifference, (float) timeDifferencePercentage);
