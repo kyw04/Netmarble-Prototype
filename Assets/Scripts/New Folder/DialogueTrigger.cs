@@ -12,6 +12,7 @@ public class DialogueTrigger : MonoBehaviour
     private void Start()
     {
        btt = FindObjectOfType<Image>();
+       FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
     }
 
     public void TriggerDialoge()
