@@ -17,7 +17,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/New Folder/First.unity
     guid: ec390bf1db0b9ea458c7984b7521dd8d
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Title/Start.unity
     guid: 7ed7d29b9288843419b8d8297a752074
   - enabled: 0
@@ -26,4 +26,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/InGame/TestScene.unity
     guid: eccc050c1b26547438a225ad2e71abfd
+  - enabled: 1
+    path: Assets/Scenes/InGame/Test_main.unity
+    guid: e42a5a42c6db5df43b35b3db6ba85242
+  - enabled: 1
+    path: Assets/Scenes/InGame/pro.unity
+    guid: e33c732cae60a054c838fa882a6ce3c5
   m_configObjects: {}
