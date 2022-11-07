@@ -258,7 +258,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Songs:
-  - {fileID: 11400000, guid: e48d10406c3f0804d9c939224fd16b19, type: 2}
+  - {fileID: 11400000, guid: d8bbd5a15a6fb114b8fb8335ec8024e2, type: 2}
   m_GameplayPanel: {fileID: 3843263971305545608}
   m_SongChooser: {fileID: 472594495959003773}
   m_EndScorePanel: {fileID: 5418257556940368004}
@@ -2275,7 +2275,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16a9dfd789041cb49b89bd3b93e8bfca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 0}
+  m_Animator: {fileID: 1903276514}
+  cam_Animator: {fileID: 2127134639}
 --- !u!1 &1911659274
 GameObject:
   m_ObjectHideFlags: 0
@@ -2641,6 +2642,7 @@ GameObject:
   - component: {fileID: 2127134636}
   - component: {fileID: 2127134635}
   - component: {fileID: 2127134634}
+  - component: {fileID: 2127134639}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2843,6 +2845,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &2127134639
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2127134633}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 84508ea0d85099b46bb563f3f53fb273, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!224 &82295924484463259
 RectTransform:
   m_ObjectHideFlags: 0

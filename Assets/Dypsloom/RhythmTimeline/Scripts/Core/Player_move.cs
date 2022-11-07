@@ -11,6 +11,7 @@ public class Player_move : MonoBehaviour
     public static Player_move instence;
     //private SpriteRenderer spriteRenderer;
     public Animator m_Animator;
+    public Animator cam_Animator;
     private float startScale;
     //private Vector2 sceneSize;
 
@@ -41,7 +42,6 @@ public class Player_move : MonoBehaviour
             float height = Screen.height / 3;
             m_Animator.SetTrigger("Touch");
 
-
             if (mousePosition.y < height)
             {
                 m_Animator.SetFloat("Blend", 1f);
@@ -55,5 +55,12 @@ public class Player_move : MonoBehaviour
                 m_Animator.SetFloat("Blend", 0f);
             }
         }
+    }
+
+
+    public void Hit()
+    {
+        cam_Animator.SetTrigger("Hit");
+        m_Animator.SetTrigger("Hit");
     }
 }
