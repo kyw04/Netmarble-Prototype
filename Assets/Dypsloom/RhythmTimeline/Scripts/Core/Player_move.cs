@@ -8,15 +8,21 @@ using UnityEngine.UI;
 
 public class Player_move : MonoBehaviour
 {
-    private SpriteRenderer spriteRenderer;
-    private Animator anim;
+    public static Player_move instence;
+    //private SpriteRenderer spriteRenderer;
+    public Animator m_Animator;
     private float startScale;
     //private Vector2 sceneSize;
 
+    private void Awake()
+    {
+        if (instence == null) instence = this;
+    }
+
     void Start()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        anim = GetComponent<Animator>();
+        //spriteRenderer = GetComponent<SpriteRenderer>();
+        m_Animator = GetComponent<Animator>();
         startScale = transform.localScale.x;
 
         //sceneSize = new Vector2(Screen.width, Screen.height);
@@ -33,20 +39,20 @@ public class Player_move : MonoBehaviour
             int direction = mousePosition.x < Screen.width / 2 ? 1 : -1; // 오른쪽 왼쪽 판별
             transform.localScale = new Vector3(direction * startScale, startScale, startScale); // 방향 변경
             float height = Screen.height / 3;
+            m_Animator.SetTrigger("Touch");
 
-            
 
             if (mousePosition.y < height)
             {
-                anim.SetFloat("Blend", 1f);
+                m_Animator.SetFloat("Blend", 1f);
             }
             else if (mousePosition.y < height * 2)
             {
-                anim.SetFloat("Blend", 0.5f);
+                m_Animator.SetFloat("Blend", 0.5f);
             }
             else
             {
-                anim.SetFloat("Blend", 0f);
+                m_Animator.SetFloat("Blend", 0f);
             }
         }
     }

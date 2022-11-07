@@ -39,6 +39,7 @@ namespace Dypsloom.RhythmTimeline.Core.Notes
 
 		public void SetMiss()
 		{
+			Player_move.instence.m_Animator.SetTrigger("Hit");
 			InputEventData = null;
 			TriggerDspTime = DspTime.AdaptiveTime;
 			DspTimeDifference = 0;
