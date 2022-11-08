@@ -60,7 +60,7 @@ public class Player_move : MonoBehaviour
 
     public void Hit()
     {
-        cam_Animator.SetTrigger("Hit");
+        //cam_Animator.SetTrigger("Hit");
         m_Animator.SetTrigger("Hit");
     }
 }
