@@ -119,6 +119,7 @@ namespace Dypsloom.RhythmTimeline.Core.Notes
         public override void OnTriggerInput(InputEventData inputEventData)
         {
             if (inputEventData.Tap) {
+                //Player_move.instence.ComboStack();
 
                 //Player.Instance.Heal(1);
 
@@ -133,7 +134,8 @@ namespace Dypsloom.RhythmTimeline.Core.Notes
             }
 
             if (m_Holding && inputEventData.Release) {
-            
+                Player_move.instence.ComboStack();
+
                 gameObject.SetActive(false);
                 m_IsTriggered = true;
             

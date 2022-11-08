@@ -128,6 +128,7 @@ namespace Dypsloom.RhythmTimeline.Core.Notes
 
             if (secondNote.tapped && noteOn)
             {
+                Player_move.instence.ComboStack();
                 //Player.Instance.Heal(1);
 
                 noteOn = false;

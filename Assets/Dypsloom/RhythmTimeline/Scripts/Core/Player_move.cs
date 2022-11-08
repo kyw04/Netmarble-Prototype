@@ -12,6 +12,7 @@ public class Player_move : MonoBehaviour
     //private SpriteRenderer spriteRenderer;
     public Animator m_Animator;
     public Animator cam_Animator;
+    public Animator combo_Animator;
     private float startScale;
     //private Vector2 sceneSize;
 
@@ -62,5 +63,10 @@ public class Player_move : MonoBehaviour
     {
         //cam_Animator.SetTrigger("Hit");
         m_Animator.SetTrigger("Hit");
+    }
+
+    public void ComboStack()
+    {
+        combo_Animator.SetTrigger("Stack");
     }
 }
