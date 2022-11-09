@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
+
 
 public class CurtainAni : MonoBehaviour
 {
     public static CurtainAni instance;
     public Animator m_Animator;
+    private PlayableGraph playableGraph;
 
     private bool isOpen = true;
 
@@ -14,7 +17,25 @@ public class CurtainAni : MonoBehaviour
         if (instance == null)
         {
             instance = this;
+            playableGraph = PlayableGraph.Create();
             DontDestroyOnLoad(this.gameObject);
+        }
+    }
+
+    private void Update()
+    {
+        if (playableGraph.GetPlayableCount() > 0)
+        {
+            Debug.Log(playableGraph.GetRootPlayable(0));
+        }
+
+        if (m_Animator.GetCurrentAnimatorStateInfo(0).IsName("curtain_opened"))
+        {
+            m_Animator.SetBool("isOpen", true);
+        }
+        if (m_Animator.GetCurrentAnimatorStateInfo(0).IsName("curtain_closed"))
+        {
+            m_Animator.SetBool("isOpen", false);
         }
     }
 
@@ -31,7 +52,6 @@ public class CurtainAni : MonoBehaviour
     {
         yield return new WaitForSeconds(t);
         m_Animator.SetTrigger("Open");
-        StartCoroutine("SetBool");
     }
 
     public void Close(float t = 0)
@@ -47,14 +67,5 @@ public class CurtainAni : MonoBehaviour
     {
         yield return new WaitForSeconds(t);
         m_Animator.SetTrigger("Close");
-        StartCoroutine("SetBool");
-    }
-
-    private IEnumerator SetBool()
-    {
-        yield return new WaitForSeconds(1f);
-        m_Animator.SetBool("isOpen", isOpen);
-
-        Debug.Log(m_Animator.GetBool("isOpen"));
     }
 }

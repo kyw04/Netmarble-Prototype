@@ -13,6 +13,7 @@ namespace Dypsloom.RhythmTimeline.Core.Managers
     using TMPro;
     using UnityEngine;
     using UnityEngine.UI;
+    using UnityEngine.SceneManagement;
 
     public class RhythmGameManager : MonoBehaviour
     {
@@ -53,7 +54,9 @@ namespace Dypsloom.RhythmTimeline.Core.Managers
         protected RhythmTimelineAsset m_SelectedSong;
         protected bool m_Paused;
 
-        private bool isStart = false;
+        private bool isStart;
+        private bool isGameOver;
+        private bool isGameEnd;
 
         private void Awake()
         {
@@ -63,6 +66,9 @@ namespace Dypsloom.RhythmTimeline.Core.Managers
 
         private void Start()
         {
+            isStart = false;
+            isGameOver = false;
+            isGameEnd = false;
             //PlaySong(0);
             
             if (AudioListener.pause)
@@ -122,10 +128,9 @@ namespace Dypsloom.RhythmTimeline.Core.Managers
                 scoreManager.OnSongEnd(SelectedSong);
             }
 
-            if (m_EndScorePanel != null) {
-                m_EndScorePanel.Open(this);
-            }
-            
+            isGameEnd = true;
+            CurtainAni.instance.m_Animator.SetTrigger("Close");
+
             DrawTimer(0);
         }
 
@@ -152,28 +157,37 @@ namespace Dypsloom.RhythmTimeline.Core.Managers
 
         public void Pause()
         {
-            m_PauseMenu.SetActive(true);
             m_Paused = true;
-            Time.timeScale = 0;
+            //Time.timeScale = 0;
             AudioListener.pause = true;
             m_RhythmDirector.Pause();
+
+            CurtainAni.instance.m_Animator.SetTrigger("Close");
         }
-    
+
+        public void Paused()
+        {
+            m_PauseMenu.SetActive(true);
+        }
+
         public void UnPause()
         {
-            m_PauseMenu.SetActive(false);
             m_Paused = false;
-            Time.timeScale = 1;
-            AudioListener.pause = false;
+            m_PauseMenu.SetActive(false);
+            CurtainAni.instance.m_Animator.SetTrigger("Open");
+        }
+
+        public void UnPaused()
+        {
+            //Time.timeScale = 1;
             m_RhythmDirector.UnPause();
+            AudioListener.pause = false;
         }
 
         public void GameOver()
         {
-            m_Paused = true;
-            Time.timeScale = 0;
-            AudioListener.pause = true;
-            m_RhythmDirector.Pause();
+            isGameOver = true;
+            Pause();
         }
     
         public void EndSong()
@@ -184,11 +198,8 @@ namespace Dypsloom.RhythmTimeline.Core.Managers
         
         public void QuitGame()
         {
-#if UNITY_EDITOR
-            UnityEditor.EditorApplication.isPlaying = false;
-#else
-            Application.Quit();
-#endif
+            CurtainAni.instance.m_Animator.SetTrigger("Open");
+            SceneManager.LoadScene("Scenes/InGame/Test_main");
         }
 
         private void Update()
@@ -197,6 +208,30 @@ namespace Dypsloom.RhythmTimeline.Core.Managers
             {
                 isStart = true;
                 OpenSongChooser();
+            }
+
+            if (isGameEnd && !CurtainAni.instance.m_Animator.GetBool("isOpen"))
+            {
+                if (m_EndScorePanel != null)
+                {
+                    m_EndScorePanel.Open(this);
+                }
+            }
+
+            if (m_Paused && !CurtainAni.instance.m_Animator.GetBool("isOpen"))
+            {
+                if (isGameOver)
+                {
+                    Player.Instance.gameOverPlane.SetActive(true);
+                }
+                else
+                {
+                    Paused();
+                }
+            }
+            if (!m_Paused && CurtainAni.instance.m_Animator.GetBool("isOpen") && AudioListener.pause == true)
+            {
+                UnPaused();
             }
 
             if (m_IsPlaying && !m_Paused) {

@@ -32,7 +32,7 @@ public class Player : MonoBehaviour
             currentHP = 0;
 
             gameManager.GameOver();
-            gameOverPlane.SetActive(true);
+            
         }
 
         HPSprite.fillAmount = currentHP / maxHP;
