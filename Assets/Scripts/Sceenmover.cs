@@ -16,6 +16,11 @@ public class Sceenmover : MonoBehaviour
     }
     public void ingame()
     {
+        
+        Invoke("A", 1f);
+    }
+    public void A()
+    {
         SceneManager.LoadScene("TestScene");
     }
 }
