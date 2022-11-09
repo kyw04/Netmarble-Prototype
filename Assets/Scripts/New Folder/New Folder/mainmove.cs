@@ -26,13 +26,12 @@ public class mainmove : MonoBehaviour
     {
         CurtainAni.instance.Close();
         index = (index + 1) % Book.Length;
-        Debug.Log(index);
     }
+
     public void  onclickbuttons() // left
     {
         CurtainAni.instance.Close();
         index = index - 1 < 0 ? Book.Length - 1 : index - 1;
-        Debug.Log(index);
     }
 
     public void BookSetActive()
