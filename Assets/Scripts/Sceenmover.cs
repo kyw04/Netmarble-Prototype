@@ -25,7 +25,7 @@ public class Sceenmover : MonoBehaviour
     }
     public void ingame()
     {
-        CurtainAni.instance.Close();
         StartGame = true;
+        CurtainAni.instance.Close();
     }
 }

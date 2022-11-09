@@ -53,6 +53,8 @@ namespace Dypsloom.RhythmTimeline.Core.Managers
         protected RhythmTimelineAsset m_SelectedSong;
         protected bool m_Paused;
 
+        private bool isStart = false;
+
         private void Awake()
         {
             //Set this manager in the toolbox such that it may be found by other scripts easily.
@@ -62,7 +64,7 @@ namespace Dypsloom.RhythmTimeline.Core.Managers
         private void Start()
         {
             //PlaySong(0);
-            OpenSongChooser();
+            
             if (AudioListener.pause)
             {
                 UnPause();
@@ -191,6 +193,12 @@ namespace Dypsloom.RhythmTimeline.Core.Managers
 
         private void Update()
         {
+            if (!isStart && CurtainAni.instance.m_Animator.GetBool("isOpen"))
+            {
+                isStart = true;
+                OpenSongChooser();
+            }
+
             if (m_IsPlaying && !m_Paused) {
                 var timer = DspTime.AdaptiveTime - m_StartTime;
                 DrawTimer(timer);
