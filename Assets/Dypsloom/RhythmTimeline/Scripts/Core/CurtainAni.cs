@@ -5,10 +5,9 @@ using UnityEngine;
 public class CurtainAni : MonoBehaviour
 {
     public static CurtainAni instance;
-
     public Animator m_Animator;
 
-    private bool isOpen;
+    private bool isOpen = true;
 
     private void Awake()
     {
@@ -21,7 +20,7 @@ public class CurtainAni : MonoBehaviour
 
     public void Open(float t = 0)
     {
-        if (!m_Animator.GetBool("isOpen"))
+        if (!m_Animator.GetBool("isOpen") && !isOpen)
         {
             isOpen = true;
             StartCoroutine("_Open", t);
@@ -37,7 +36,7 @@ public class CurtainAni : MonoBehaviour
 
     public void Close(float t = 0)
     {
-        if (m_Animator.GetBool("isOpen"))
+        if (m_Animator.GetBool("isOpen") && isOpen)
         {
             isOpen = false;
             StartCoroutine("_Close", t);
@@ -55,5 +54,7 @@ public class CurtainAni : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         m_Animator.SetBool("isOpen", isOpen);
+
+        Debug.Log(m_Animator.GetBool("isOpen"));
     }
 }
