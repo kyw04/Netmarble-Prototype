@@ -5,13 +5,12 @@ using UnityEngine.UI;
 
 public class mainmove : MonoBehaviour
 {
-    public GameObject target1;
-    public GameObject target2;
-    public GameObject target3;
-    public int main =0;
+    public GameObject[] Book;
+    public int index = 0;
+
     private void Start()
     {
-       main = 0;
+        index = 0;
     }
 
     private void Update()
@@ -19,46 +18,30 @@ public class mainmove : MonoBehaviour
         if (!CurtainAni.instance.m_Animator.GetBool("isOpen"))
         {
             CurtainAni.instance.Open();
-         
-            if (main == 0)
-            {
-                target1.SetActive(true);
-                target2.SetActive(false);
-                target3.SetActive(false);
-            }
-            if (main == 1)
-            {
-                target1.SetActive(false);
-                target2.SetActive(true);
-                target3.SetActive(false);
-
-            }
-            if (main == 2)
-            {
-                target1.SetActive(false);
-                target2.SetActive(false);
-                target3.SetActive(true);
-            }
-        }
-
-        if (main >= 3)
-        {
-            main = 0;
-        }
-        if (main <= -1)
-        {
-            main = 2;
+            BookSetActive();
         }
     }
 
     public void  onclickbutton() // right
     {
         CurtainAni.instance.Close();
-        main++;
+        index = (index + 1) % Book.Length;
+        Debug.Log(index);
     }
-     public void  onclickbuttons() // left
+    public void  onclickbuttons() // left
     {
         CurtainAni.instance.Close();
-        main--;
+        index = index - 1 < 0 ? Book.Length - 1 : index - 1;
+        Debug.Log(index);
+    }
+
+    public void BookSetActive()
+    {
+        Book[index].SetActive(true);
+
+        if (index != 0)
+            Book[index - 1].SetActive(false);
+        else
+            Book[Book.Length - 1].SetActive(false);
     }
 }
