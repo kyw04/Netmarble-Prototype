@@ -16,7 +16,8 @@ public class Sceenmover : MonoBehaviour
     }
     public void ingame()
     {
-        Invoke("A", 1.5f);
+        
+        Invoke("A", 1f);
     }
     public void A()
     {
