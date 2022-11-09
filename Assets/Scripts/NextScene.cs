@@ -12,6 +12,12 @@ public class NextScene : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0)) // Input.touchCount >= 1
         {
+            CurtainAni.instance.Close();
+        }
+
+        if (!CurtainAni.instance.m_Animator.GetBool("isOpen"))
+        {
+            CurtainAni.instance.Open();
             SceneManager.LoadScene(SceneToLoad);
         }
     }

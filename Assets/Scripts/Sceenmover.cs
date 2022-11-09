@@ -5,7 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class Sceenmover : MonoBehaviour
 {
-    
+    private bool StartGame = false;
+    private void Update()
+    {
+        if (StartGame && !CurtainAni.instance.m_Animator.GetBool("isOpen"))
+        {
+            CurtainAni.instance.Open();
+            SceneManager.LoadScene("TestScene");
+        }
+    }
+
     public void pro()
     {
         SceneManager.LoadScene("pro");
@@ -16,11 +25,7 @@ public class Sceenmover : MonoBehaviour
     }
     public void ingame()
     {
-        
-        Invoke("A", 1f);
-    }
-    public void A()
-    {
-        SceneManager.LoadScene("TestScene");
+        CurtainAni.instance.Close();
+        StartGame = true;
     }
 }
