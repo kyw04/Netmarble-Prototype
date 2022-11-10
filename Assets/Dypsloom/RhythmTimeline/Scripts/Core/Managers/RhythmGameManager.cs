@@ -129,7 +129,7 @@ namespace Dypsloom.RhythmTimeline.Core.Managers
             }
 
             isGameEnd = true;
-            CurtainAni.instance.m_Animator.SetTrigger("Close");
+            CurtainAni.instance.Close();
 
             DrawTimer(0);
         }
@@ -162,7 +162,7 @@ namespace Dypsloom.RhythmTimeline.Core.Managers
             AudioListener.pause = true;
             m_RhythmDirector.Pause();
 
-            CurtainAni.instance.m_Animator.SetTrigger("Close");
+            CurtainAni.instance.Close();
         }
 
         public void Paused()
@@ -174,7 +174,7 @@ namespace Dypsloom.RhythmTimeline.Core.Managers
         {
             m_Paused = false;
             m_PauseMenu.SetActive(false);
-            CurtainAni.instance.m_Animator.SetTrigger("Open");
+            CurtainAni.instance.Open();
         }
 
         public void UnPaused()
@@ -198,7 +198,7 @@ namespace Dypsloom.RhythmTimeline.Core.Managers
         
         public void QuitGame()
         {
-            CurtainAni.instance.m_Animator.SetTrigger("Open");
+            CurtainAni.instance.Open();
             SceneManager.LoadScene("Scenes/InGame/Test_main");
         }
 

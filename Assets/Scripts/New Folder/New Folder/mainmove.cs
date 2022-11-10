@@ -7,6 +7,7 @@ public class mainmove : MonoBehaviour
 {
     public GameObject[] Book;
     public int index = 0;
+    private bool bookChanage = false;
 
     private void Start()
     {
@@ -15,7 +16,7 @@ public class mainmove : MonoBehaviour
 
     private void Update()
     {
-        if (!CurtainAni.instance.m_Animator.GetBool("isOpen"))
+        if (!CurtainAni.instance.m_Animator.GetBool("isOpen") && !CurtainAni.instance.m_Animator.GetBool("Opening") && !bookChanage)
         {
             CurtainAni.instance.Open();
             BookSetActive();
@@ -38,6 +39,7 @@ public class mainmove : MonoBehaviour
 
     public void BookSetActive()
     {
+        bookChanage = true;
         for (int i = 0; i < Book.Length; i++)
         {
             Book[i].SetActive(false);

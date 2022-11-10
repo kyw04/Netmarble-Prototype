@@ -24,8 +24,9 @@ public class InputSetting : MonoBehaviour
 
         for (int i = 0; i < inputBox.Length; i++)
         {
-            float posX = i / 3 == 0 ? -1 : 1;
-            posX *= sizeX / 2f;
+            float dir = i / 3 == 0 ? -1 : 1;
+            float posX = dir * sizeX / 2f;
+            posX += 1.5f * dir;
             float posY = (i % 3 - 1) * sizeY;
             position = new Vector3(posX, posY, 0);
 
@@ -36,30 +37,24 @@ public class InputSetting : MonoBehaviour
         }
     }
 
-    //public void Update()
-    //{
-    //    if (Input.GetMouseButton(0))
-    //    {
-    //        int index;
-    //        Vector2 mousePosition = Input.mousePosition;
+    public void Update()
+    {
+        if (!CurtainAni.instance.m_Animator.GetBool("isOpen") || CurtainAni.instance.m_Animator.GetBool("Closing"))
+        {
+            for (int i = 0; i < inputBox.Length; i++)
+            {
+                inputBox[i].gameObject.SetActive(false);
+                touchFeedback[i].gameObject.SetActive(false);
+            }
 
-    //        index = mousePosition.x < Screen.width / 2 ? 0 : 3;
-    //        float height = Screen.height / 3;
-
-    //        if (mousePosition.y < height)
-    //        {
-    //            index += 2;
-    //        }
-    //        else if (mousePosition.y < height * 2)
-    //        {
-    //            index += 1;
-    //        }
-    //        else
-    //        {
-    //            index += 0;
-    //        }
-
-    //        touchFeedback[index].TouchFeedbackStart();
-    //    }
-    //}
+        }
+        else
+        {
+            for (int i = 0; i < inputBox.Length; i++)
+            {
+                inputBox[i].gameObject.SetActive(true);
+                touchFeedback[i].gameObject.SetActive(true);
+            }
+        }
+    }
 }

@@ -12447,7 +12447,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ScoreUi: {fileID: 6172631918176041870}
   m_HighScoreUi: {fileID: 6172631918358472910}
-  m_NextButton: {fileID: 2127595272}
+  m_NextButton: {fileID: 0}
 --- !u!114 &5548817344329519460
 MonoBehaviour:
   m_ObjectHideFlags: 0
