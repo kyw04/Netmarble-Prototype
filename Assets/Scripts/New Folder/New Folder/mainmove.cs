@@ -21,6 +21,11 @@ public class mainmove : MonoBehaviour
             CurtainAni.instance.Open();
             BookSetActive();
         }
+
+        if (CurtainAni.instance.m_Animator.GetBool("isOpen"))
+        {
+            bookChanage = false;
+        }
     }
 
     public void  onclickbutton() // right
