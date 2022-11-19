@@ -7,6 +7,7 @@ public class ButtonManager : MonoBehaviour
 {
     public void RestartButtonClick()
     {
+        CurtainAni.instance.Open();
         SceneManager.LoadScene("Scenes/InGame/TestScene");
     }
 }
