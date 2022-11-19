@@ -406,7 +406,7 @@ MonoBehaviour:
   m_EndNote: {fileID: 390540688947539087}
   m_LineRenderer: {fileID: 1587133033315448136}
   m_OutLineRenderer: {fileID: 6144077299481984838}
-  m_ActiveLineColor: {r: 0, g: 0, b: 1, a: 1}
+  m_ActiveLineColor: {r: 0, g: 0.12316942, b: 1, a: 1}
   m_AutoPerfectRelease: 0
   m_RemoveNoteIfMissed: 1
 --- !u!1 &2367465758212223605
