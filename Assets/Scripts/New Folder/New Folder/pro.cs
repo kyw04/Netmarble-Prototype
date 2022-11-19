@@ -1,16 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using static System.Net.Mime.MediaTypeNames;
+
 
 public class pro : MonoBehaviour
 {
     public GameObject[] images;
     public Text tx;
-    public Text m_Text;
+    public string m_Text;
     public string[] contents;
     public int index = 0;
     public bool isEnd = false;
@@ -18,7 +17,7 @@ public class pro : MonoBehaviour
     public void Start()
     {
         onclickbutton();
-        StartCoroutine(typing());
+  
     }
     void Update()
     {
@@ -33,6 +32,7 @@ public class pro : MonoBehaviour
     {
         index++;
         ChangeContents();
+        StartCoroutine(typing());
     }
 
     private void ChangeContents()
@@ -50,7 +50,7 @@ public class pro : MonoBehaviour
 
         images[index - 1].SetActive(false);
         images[index].SetActive(true);
-        m_Text.text = contents[index];
+        m_Text = contents[index];
     }
 
     IEnumerator typing()
