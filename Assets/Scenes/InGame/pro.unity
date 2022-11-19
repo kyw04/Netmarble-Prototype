@@ -591,7 +591,8 @@ MonoBehaviour:
   - {fileID: 663820192}
   - {fileID: 663820192}
   - {fileID: 663820192}
-  m_Text: {fileID: 578761958}
+  tx: {fileID: 578761958}
+  m_Text: 
   contents:
   - 
   - "\uC774\uACF3\uC740 \uD3C9\uD654\uB85C\uC6B4 \uB3D9\uD654\uB098\uB77C."

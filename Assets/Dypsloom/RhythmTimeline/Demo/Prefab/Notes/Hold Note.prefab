@@ -382,7 +382,7 @@ Transform:
   - {fileID: 7065696002737216897}
   - {fileID: 508809110536528139}
   - {fileID: 390540688947539087}
-  - {fileID: 2880442386539167134}
+  - {fileID: 7667459417473080014}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
@@ -406,7 +406,7 @@ MonoBehaviour:
   m_EndNote: {fileID: 390540688947539087}
   m_LineRenderer: {fileID: 1587133033315448136}
   m_OutLineRenderer: {fileID: 6144077299481984838}
-  m_ActiveLineColor: {r: 0, g: 0, b: 1, a: 1}
+  m_ActiveLineColor: {r: 0, g: 0.12316942, b: 1, a: 1}
   m_AutoPerfectRelease: 0
   m_RemoveNoteIfMissed: 1
 --- !u!1 &2367465758212223605
@@ -1270,7 +1270,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1001 &1355489852464306970
+--- !u!1001 &6872071331368270922
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -1279,7 +1279,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1709110375052384826, guid: f23340a29a852df4f88a496427906c96, type: 3}
       propertyPath: m_Name
-      value: NoteEffects
+      value: Note Effects
       objectReference: {fileID: 0}
     - target: {fileID: 3834473959448716932, guid: f23340a29a852df4f88a496427906c96, type: 3}
       propertyPath: m_RootOrder
@@ -1335,8 +1335,8 @@ PrefabInstance:
       objectReference: {fileID: 508809110536528139}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f23340a29a852df4f88a496427906c96, type: 3}
---- !u!4 &2880442386539167134 stripped
+--- !u!4 &7667459417473080014 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3834473959448716932, guid: f23340a29a852df4f88a496427906c96, type: 3}
-  m_PrefabInstance: {fileID: 1355489852464306970}
+  m_PrefabInstance: {fileID: 6872071331368270922}
   m_PrefabAsset: {fileID: 0}

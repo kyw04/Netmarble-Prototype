@@ -4,10 +4,12 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+
 public class pro : MonoBehaviour
 {
     public GameObject[] images;
-    public Text m_Text;
+    public Text tx;
+    public string m_Text;
     public string[] contents;
     public int index = 0;
     public bool isEnd = false;
@@ -15,6 +17,7 @@ public class pro : MonoBehaviour
     public void Start()
     {
         onclickbutton();
+  
     }
     void Update()
     {
@@ -29,6 +32,7 @@ public class pro : MonoBehaviour
     {
         index++;
         ChangeContents();
+        StartCoroutine(typing());
     }
 
     private void ChangeContents()
@@ -46,6 +50,15 @@ public class pro : MonoBehaviour
 
         images[index - 1].SetActive(false);
         images[index].SetActive(true);
-        m_Text.text = contents[index];
+        m_Text = contents[index];
+    }
+
+    IEnumerator typing()
+    {
+        for (int i = 0; i <= m_Text.Length; i++)
+        {
+            tx.text = m_Text.Substring(0, i);
+            yield return new WaitForSeconds(0.15f);
+        }
     }
 }
