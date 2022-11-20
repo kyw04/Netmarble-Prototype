@@ -200,9 +200,14 @@ namespace Dypsloom.RhythmTimeline.Core.Managers
 
             //Do not use m_PlayableDirector.Play() because pause is not used.
             m_PlayableDirector.time = m_PausedTime;
-            var count = m_PlayableDirector.playableGraph.GetRootPlayableCount();
-            for (int i = 0; i < count; i++) {
-                m_PlayableDirector.playableGraph.GetRootPlayable(i).SetSpeed(1);
+
+            if (m_PlayableDirector.playableGraph.IsValid())
+            {
+                var count = m_PlayableDirector.playableGraph.GetRootPlayableCount();
+                for (int i = 0; i < count; i++)
+                {
+                    m_PlayableDirector.playableGraph.GetRootPlayable(i).SetSpeed(1);
+                }
             }
         }
     }

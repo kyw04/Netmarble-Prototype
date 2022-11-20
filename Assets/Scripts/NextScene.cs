@@ -15,10 +15,25 @@ public class NextScene : MonoBehaviour
             CurtainAni.instance.Open();
             SceneManager.LoadScene(SceneToLoad);
         }
+
+        if (Input.GetKey(KeyCode.R))
+        {
+            PlayerPrefs.DeleteAll();
+            Debug.Log("삭제 완료");
+        }
     }
 
     public void StartButtonClick()
     {
         CurtainAni.instance.Close();
+
+        if (PlayerPrefs.GetInt("Prologue") > 0)
+        {
+            SceneToLoad = "Test_main";
+        }
+        else
+        {
+            SceneToLoad = "pro";
+        }
     }
 }

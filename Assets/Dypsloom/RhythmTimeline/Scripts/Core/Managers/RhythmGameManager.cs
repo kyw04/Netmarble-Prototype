@@ -57,6 +57,7 @@ namespace Dypsloom.RhythmTimeline.Core.Managers
         private bool isStart;
         private bool isGameOver;
         private bool isGameEnd;
+        public bool startAwake = false;
 
         private void Awake()
         {

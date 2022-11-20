@@ -343,6 +343,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Songs:
   - {fileID: 11400000, guid: d8bbd5a15a6fb114b8fb8335ec8024e2, type: 2}
+  - {fileID: 11400000, guid: e48d10406c3f0804d9c939224fd16b19, type: 2}
+  - {fileID: 11400000, guid: e48d10406c3f0804d9c939224fd16b19, type: 2}
   m_GameplayPanel: {fileID: 3843263971305545608}
   m_SongChooser: {fileID: 472594495959003773}
   m_EndScorePanel: {fileID: 5418257556940368004}
@@ -354,6 +356,7 @@ MonoBehaviour:
   m_ResumeButton: {fileID: 5548817344532840851}
   m_EndSongButton: {fileID: 0}
   m_QuitButton: {fileID: 0}
+  startAwake: 1
 --- !u!1 &47457771
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class mainmove : MonoBehaviour
 {
     public GameObject[] Book;
+    public LoadScore loadScore;
     public int index = 0;
     private bool bookChanage = false;
 
@@ -32,14 +33,14 @@ public class mainmove : MonoBehaviour
     {
         CurtainAni.instance.Close();
         index = (index + 1) % Book.Length;
-        //Debug.Log(index);
+        loadScore.ChangeStage(index);
     }
 
     public void  onclickbuttons() // left
     {
         CurtainAni.instance.Close();
         index = index - 1 < 0 ? Book.Length - 1 : index - 1;
-        //Debug.Log(index);
+        loadScore.ChangeStage(index);
     }
 
     public void BookSetActive()
@@ -52,5 +53,6 @@ public class mainmove : MonoBehaviour
 
         Debug.Log("Change");
         Book[index].SetActive(true);
+        loadScore.SelectStage();
     }
 }

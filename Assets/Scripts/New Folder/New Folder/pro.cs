@@ -17,7 +17,7 @@ public class pro : MonoBehaviour
     public void Start()
     {
         onclickbutton();
-  
+        PlayerPrefs.SetInt("Prologue", 1);
     }
     void Update()
     {
