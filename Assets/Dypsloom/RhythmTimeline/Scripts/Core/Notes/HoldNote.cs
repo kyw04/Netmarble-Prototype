@@ -34,6 +34,8 @@ namespace Dypsloom.RhythmTimeline.Core.Notes
 
         protected double m_StartHoldTimeOffset;
 
+        public ParticleSystem holdEffect;
+
         /// <summary>
         /// Initialize the note.
         /// </summary>
@@ -124,7 +126,7 @@ namespace Dypsloom.RhythmTimeline.Core.Notes
                 //Player.Instance.Heal(1);
 
                 m_Holding = true;
-            
+                holdEffect.Play();
                 m_StartNote.position = m_RhythmClipData.TrackObject.EndPoint.position;
             
                 var perfectTime = m_RhythmClipData.RhythmDirector.HalfCrochet;
@@ -134,6 +136,7 @@ namespace Dypsloom.RhythmTimeline.Core.Notes
             }
 
             if (m_Holding && inputEventData.Release) {
+                
                 Player_move.instence.ComboStack();
 
                 gameObject.SetActive(false);
@@ -147,6 +150,11 @@ namespace Dypsloom.RhythmTimeline.Core.Notes
                 
                 InvokeNoteTriggerEvent(inputEventData, timeDifference, (float) timeDifferencePercentage);
                 RhythmClipData.TrackObject.RemoveActiveNote(this);
+            }
+            
+            if (!m_Holding)
+            {
+                holdEffect.Stop();
             }
         
         }

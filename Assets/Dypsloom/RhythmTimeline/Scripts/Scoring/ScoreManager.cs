@@ -284,14 +284,22 @@ namespace Dypsloom.RhythmTimeline.Scoring
 
         public void UpdateScoreVisual()
         {
-            if (m_ScoreTmp != null) {
-                m_ScoreTmp.text = m_CurrentScore.ToString();
-            }
             if (m_ScoreMultiplierTmp != null) {
                 m_ScoreMultiplierTmp.text = m_ScoreMultiplier == 1 ? "" : $"X{m_ScoreMultiplier}";
             }
+
             if (m_ChainTmp != null) {
                 m_ChainTmp.text = m_CurrentChain.ToString();
+
+                if (m_CurrentChain > 0 && m_CurrentChain % 10 == 0)
+                {
+                    m_CurrentScore += 10;
+                }
+            }
+
+            if (m_ScoreTmp != null)
+            {
+                m_ScoreTmp.text = m_CurrentScore.ToString();
             }
 
             if (m_RankSlider != null) {
