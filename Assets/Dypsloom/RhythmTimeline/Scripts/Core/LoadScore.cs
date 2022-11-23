@@ -4,6 +4,7 @@ using UnityEngine;
 using Dypsloom.RhythmTimeline.UI;
 using Dypsloom.RhythmTimeline.Core;
 using Dypsloom.RhythmTimeline.Core.Managers;
+using Dypsloom.RhythmTimeline.Scoring;
 
 public class LoadScore : MonoBehaviour
 {
@@ -36,6 +37,7 @@ public class LoadScore : MonoBehaviour
         {
             m_HighScoreUi.gameObject.SetActive(false);
         }
+        stage_list[index].HighScore.Initialize(ScoreManager.Instance.ScoreSettings, stage_list[index]);
 
         if (stage_list[index].HighScore.FullScore > 0)// 점수가 있을 경우
         {

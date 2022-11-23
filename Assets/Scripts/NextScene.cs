@@ -16,7 +16,7 @@ public class NextScene : MonoBehaviour
             SceneManager.LoadScene(SceneToLoad);
         }
 
-        if (Input.GetKey(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.R))
         {
             PlayerPrefs.DeleteAll();
             Debug.Log("삭제 완료");

@@ -57,6 +57,18 @@
             }
         }
 
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                DeleteFromDisk();
+                ResetAllSongHighScores();
+                SaveAllSongsToFile();
+                LoadSaveData();
+                Debug.Log("디스크에서 삭제 완료");
+            }
+        }
+
         private void HandleOnSongEnd(RhythmTimelineAsset song)
         {
             SaveSong(song);

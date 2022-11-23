@@ -13,6 +13,9 @@ public class mainmove : MonoBehaviour
     private void Start()
     {
         index = 0;
+
+        if (PlayerPrefs.HasKey("SelectedStage"))
+            index = PlayerPrefs.GetInt("SelectedStage");
     }
 
     private void Update()

@@ -36,6 +36,11 @@ namespace Dypsloom.RhythmTimeline.UI
 
         public RhythmGameManager RhythmGameManager => m_RhythmGameManager;
 
+        private void Start()
+        {
+            m_SelectedIndex = PlayerPrefs.GetInt("SelectedStage");
+        }
+
         public void Open(RhythmGameManager gameManager)
         {
             m_IsOpen = true;
