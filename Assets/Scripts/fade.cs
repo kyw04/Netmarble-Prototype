@@ -3,37 +3,39 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class fade : MonoBehaviour
+public class Fade : MonoBehaviour
 {
     public Image image;
-    public void buttonFadeIn()
+    public Button button;
+
+    public void Fadebutton()
     {
-        StartCoroutine("FadeIn");
-        Invoke("buttomFadeout", 1f);
+        button.gameObject.SetActive(false);
+        StartCoroutine(Fadecin());
+        Invoke("Fadeoutbutton", 2f);
     }
-    public void buttonFadeout()
+    public void Fadeoutbutton()
     {
-        StartCoroutine("FadeOut");
+        StartCoroutine(Fadeout());
     }
-    public IEnumerator FadeIn(float time)
+    IEnumerator Fadecin()
     {
-        Color color = image.color;
-        while (color.a > 0f)
+        float fadecount = 0;
+        while(fadecount < 1.0f)
         {
-            color.a -= Time.deltaTime / time;
-            image.color = color;
-            yield return null;
+            fadecount += 0.001f;
+            yield return new WaitForSeconds(0.001f);
+            image.color = new Color(0, 0, 0, fadecount);
         }
     }
-
-    public IEnumerator FadeOut(float time)
+    IEnumerator Fadeout()
     {
-        Color color = image.color;
-        while (color.a < 1f)
+        float fadecount = 1;
+        while (fadecount > 0f)
         {
-            color.a += Time.deltaTime / time;
-            image.color = color;
-            yield return null;
+            fadecount -= 0.001f;
+            yield return new WaitForSeconds(0.001f);
+            image.color = new Color(0, 0, 0, fadecount);
         }
     }
 }
