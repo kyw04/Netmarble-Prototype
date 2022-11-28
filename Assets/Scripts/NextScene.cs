@@ -25,7 +25,7 @@ public class NextScene : MonoBehaviour
 
     public void StartButtonClick()
     {
-        CurtainAni.instance.Close();
+        //CurtainAni.instance.Close();
 
         if (PlayerPrefs.GetInt("Prologue") > 0)
         {
