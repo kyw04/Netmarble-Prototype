@@ -4,8 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-
-public class pro : MonoBehaviour
+public class end : MonoBehaviour
 {
     public GameObject[] images;
     public Text tx;
@@ -17,7 +16,7 @@ public class pro : MonoBehaviour
     public void Start()
     {
         StartCoroutine(onclickbutton());
-        PlayerPrefs.SetInt("Prologue", 1);
+        PlayerPrefs.SetInt("End", 1);
     }
     void Update()
     {
@@ -30,14 +29,14 @@ public class pro : MonoBehaviour
     }
     IEnumerator onclickbutton()
     {
-        for(int i = 0; i < images.Length; i++)
+        for (int i = 0; i < images.Length; i++)
         {
             index++;
             ChangeContents();
             StartCoroutine(typing());
             yield return new WaitForSeconds(4f);
         }
-        
+
     }
 
     private void ChangeContents()
