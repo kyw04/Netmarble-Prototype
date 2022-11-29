@@ -58,7 +58,7 @@ public class pro : MonoBehaviour
         for (int i = 0; i <= m_Text.Length; i++)
         {
             tx.text = m_Text.Substring(0, i);
-            yield return new WaitForSeconds(0.15f);
+            yield return new WaitForSeconds(0.03f);
         }
     }
 }
