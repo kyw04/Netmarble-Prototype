@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class Fade : MonoBehaviour
+public class fade : MonoBehaviour
 {
     public Image image;
     public Button button;
@@ -14,8 +14,6 @@ public class Fade : MonoBehaviour
         button.gameObject.SetActive(false);
         StartCoroutine(Fadecin());
         Invoke("startmain", 2f);
-
-
     }
     public void Fadeoutbutton()
     {
