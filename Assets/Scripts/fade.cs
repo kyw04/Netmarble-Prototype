@@ -9,17 +9,13 @@ public class Fade : MonoBehaviour
     public Image image;
     public Button button;
 
-    public void Awake()
-    {
-        //DontDestroyOnLoad(this);
-    }
-
     public void Fadebutton()
     {
         button.gameObject.SetActive(false);
         StartCoroutine(Fadecin());
-        
-        
+        Invoke("startmain", 2f);
+
+
     }
     public void Fadeoutbutton()
     {
@@ -30,12 +26,12 @@ public class Fade : MonoBehaviour
         float fadecount = 0;
         while(fadecount < 1.0f)
         {
-            fadecount += 0.001f;
-            yield return new WaitForSeconds(0.001f);
+            fadecount += 0.01f;
+            yield return new WaitForSeconds(0.01f);
             image.color = new Color(0, 0, 0, fadecount);
         }
         //Invoke("Fadeoutbutton", 0.5f);
-        Invoke("startmain", 0.5f);
+        Invoke("startmain", 1f);
     }
     IEnumerator Fadeout()
     {
