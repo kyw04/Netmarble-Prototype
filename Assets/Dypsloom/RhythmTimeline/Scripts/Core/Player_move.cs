@@ -13,6 +13,7 @@ public class Player_move : MonoBehaviour
     public Animator m_Animator;
     public Animator cam_Animator;
     public Animator combo_Animator;
+    public Animator score_Animator;
     private float startScale;
     //private Vector2 sceneSize;
 
@@ -68,5 +69,10 @@ public class Player_move : MonoBehaviour
     public void ComboStack()
     {
         combo_Animator.SetTrigger("Stack");
+    }
+
+    public void AddScore()
+    {
+        score_Animator.SetTrigger("Add");
     }
 }

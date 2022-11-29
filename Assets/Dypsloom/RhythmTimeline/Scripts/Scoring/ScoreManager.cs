@@ -294,6 +294,7 @@ namespace Dypsloom.RhythmTimeline.Scoring
                 if (m_CurrentChain > 0 && m_CurrentChain % 10 == 0)
                 {
                     m_CurrentScore += 10;
+                    Player_move.instence.AddScore();
                 }
             }
 
@@ -320,6 +321,11 @@ namespace Dypsloom.RhythmTimeline.Scoring
         public virtual void Pop(GameObject prefab, Transform spawnPoint)
         {
             PoolManager.Instantiate(prefab, spawnPoint.position, spawnPoint.rotation);
+        }
+        public void Dead()
+        {
+            m_CurrentScore = 0;
+            m_CurrentChain = 0;
         }
     }
 }

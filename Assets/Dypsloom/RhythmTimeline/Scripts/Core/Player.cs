@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using Dypsloom.RhythmTimeline.Core.Managers;
 using UnityEngine.UI;
+using Dypsloom.RhythmTimeline.Scoring;
+
 public class Player : MonoBehaviour
 {
     public static Player Instance { get; private set; }
+    public ScoreManager scoreManager;
     public GameObject[] backgrounds;
     public GameObject[] players;
     public RhythmGameManager gameManager;
@@ -39,6 +42,7 @@ public class Player : MonoBehaviour
         {
             currentHP = 0;
 
+            scoreManager.Dead();
             gameManager.GameOver();
         }
 
