@@ -13,13 +13,9 @@ public class Player_move : MonoBehaviour
     public Animator m_Animator;
     public Animator cam_Animator;
     public Animator combo_Animator;
+    public Animator score_Animator;
     private float startScale;
     //private Vector2 sceneSize;
-
-    private void Awake()
-    {
-        if (instence == null) instence = this;
-    }
 
     void Start()
     {
@@ -32,6 +28,11 @@ public class Player_move : MonoBehaviour
 
     void Update()
     {
+        if (instence == null && gameObject.activeSelf == true)
+        {
+            instence = this;
+        }
+
         if (Input.GetMouseButton(0))
         {
             //Vector2 touchDeltaPosition = Input.GetTouch(0).position - Input.GetTouch(0).rawPosition;
@@ -68,5 +69,10 @@ public class Player_move : MonoBehaviour
     public void ComboStack()
     {
         combo_Animator.SetTrigger("Stack");
+    }
+
+    public void AddScore()
+    {
+        score_Animator.SetTrigger("Add");
     }
 }
