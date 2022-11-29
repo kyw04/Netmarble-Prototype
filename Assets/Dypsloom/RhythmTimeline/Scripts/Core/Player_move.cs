@@ -16,11 +16,6 @@ public class Player_move : MonoBehaviour
     private float startScale;
     //private Vector2 sceneSize;
 
-    private void Awake()
-    {
-        if (instence == null) instence = this;
-    }
-
     void Start()
     {
         //spriteRenderer = GetComponent<SpriteRenderer>();
@@ -32,6 +27,11 @@ public class Player_move : MonoBehaviour
 
     void Update()
     {
+        if (instence == null && gameObject.activeSelf == true)
+        {
+            instence = this;
+        }
+
         if (Input.GetMouseButton(0))
         {
             //Vector2 touchDeltaPosition = Input.GetTouch(0).position - Input.GetTouch(0).rawPosition;

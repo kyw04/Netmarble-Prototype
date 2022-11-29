@@ -6,20 +6,28 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
     public static Player Instance { get; private set; }
+    public GameObject[] backgrounds;
+    public GameObject[] players;
     public RhythmGameManager gameManager;
     public Image HPSprite;
     public GameObject gameOverPlane;
     private float currentHP;
     private float maxHP = 10;
+    private int i;
 
     private void Awake()
-    {   
+    {
         if (Instance == null)
             Instance = this;
     }
 
     private void Start()
     {
+        i = PlayerPrefs.GetInt("SelectedStage");
+        backgrounds[0].SetActive(false);
+        players[0].SetActive(false);
+        backgrounds[i].SetActive(true);
+        players[i].SetActive(true);
         SetHP();
     }
 
@@ -32,7 +40,6 @@ public class Player : MonoBehaviour
             currentHP = 0;
 
             gameManager.GameOver();
-            
         }
 
         HPSprite.fillAmount = currentHP / maxHP;
