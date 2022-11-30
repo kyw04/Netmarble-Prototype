@@ -5,6 +5,7 @@ using Dypsloom.RhythmTimeline.UI;
 using Dypsloom.RhythmTimeline.Core;
 using Dypsloom.RhythmTimeline.Core.Managers;
 using Dypsloom.RhythmTimeline.Scoring;
+using System;
 
 public class LoadScore : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class LoadScore : MonoBehaviour
     private RhythmGameManager gameManager;
     private RhythmTimelineAsset[] stage_list;
     private int index = 0;
+    public string SceneToLoad;
+    
 
 
     private void Start()
@@ -43,6 +46,14 @@ public class LoadScore : MonoBehaviour
         {
             m_HighScoreUi.transform.parent.gameObject.SetActive(true);
             m_HighScoreUi.SetScoreData(stage_list[index].HighScore);
+            if (PlayerPrefs.GetInt("End") > 0)
+            {
+                SceneToLoad = "Test_main";
+            }
+            else
+            {
+                SceneToLoad = "end";
+            }
         }
         else
         {
