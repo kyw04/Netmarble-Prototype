@@ -16,6 +16,8 @@ public class mainmove : MonoBehaviour
 
         if (PlayerPrefs.HasKey("SelectedStage"))
             index = PlayerPrefs.GetInt("SelectedStage");
+
+        BookSetActive();
     }
 
     private void Update()

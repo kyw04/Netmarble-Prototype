@@ -174,7 +174,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: 
 --- !u!222 &277126790
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -255,7 +255,7 @@ MonoBehaviour:
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1920, y: 1080}
-  m_ScreenMatchMode: 0
+  m_ScreenMatchMode: 1
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
@@ -271,8 +271,8 @@ Canvas:
   m_GameObject: {fileID: 639955525}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_RenderMode: 1
+  m_Camera: {fileID: 1700183183}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -317,7 +317,7 @@ GameObject:
   - component: {fileID: 1327220412}
   - component: {fileID: 1327220411}
   - component: {fileID: 1327220410}
-  - component: {fileID: 1327220413}
+  - component: {fileID: 1327220414}
   m_Layer: 5
   m_Name: Button (Legacy)
   m_TagString: Untagged
@@ -389,8 +389,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1327220413}
-        m_TargetAssemblyTypeName: end, Assembly-CSharp
+      - m_Target: {fileID: 1327220414}
+        m_TargetAssemblyTypeName: pro, Assembly-CSharp
         m_MethodName: onclickbutton
         m_Mode: 1
         m_Arguments:
@@ -439,7 +439,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1327220407}
   m_CullTransparentMesh: 1
---- !u!114 &1327220413
+--- !u!114 &1327220414
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -448,7 +448,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1327220407}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec7b9c3d10258294aad8b77174d91bd4, type: 3}
+  m_Script: {fileID: 11500000, guid: ba25e3aa4caf866469310390e6278ab2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   images:
@@ -559,6 +559,7 @@ GameObject:
   - component: {fileID: 1700183184}
   - component: {fileID: 1700183183}
   - component: {fileID: 1700183182}
+  - component: {fileID: 1700183185}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -584,7 +585,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -632,6 +633,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1700183185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1700183181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8726936b7d850d04f8fd2f2fa77af6a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1868762541
 GameObject:
   m_ObjectHideFlags: 0
@@ -719,7 +732,6 @@ GameObject:
   - component: {fileID: 2088038547}
   - component: {fileID: 2088038546}
   - component: {fileID: 2088038545}
-  - component: {fileID: 2088038544}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -727,18 +739,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2088038544
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2088038543}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3cdeff49470fa64195b79eb87e34661, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2088038545
 MonoBehaviour:
   m_ObjectHideFlags: 0

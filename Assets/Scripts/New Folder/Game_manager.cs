@@ -11,6 +11,9 @@ public class Game_manager : MonoBehaviour
 
     void Awake()
     {
+        if (PlayerPrefs.HasKey("LV"))
+            LV = PlayerPrefs.GetInt("LV");
+        
         target = () => 
         {
             lv();
@@ -20,13 +23,14 @@ public class Game_manager : MonoBehaviour
             lvss();
         };
 
-   
-
         DontDestroyOnLoad(gameObject);
-        
     }
-   
 
+    private void Update()
+    {
+        if (PlayerPrefs.HasKey("LV") && LV != PlayerPrefs.GetInt("LV"))
+            LV = PlayerPrefs.GetInt("LV");
+    }
 
     public void lv()
     {
@@ -35,7 +39,7 @@ public class Game_manager : MonoBehaviour
 
     public void lvss()
     {
-        if(LV == 1)
+        if(LV >= 1)
         {
             GameObject.Find("Canvass").transform.Find("Book_2").transform.Find("Image").transform.Find("s.c").gameObject.SetActive(true);
             GameObject.Find("Canvass").transform.Find("Book_2").transform.Find("Image").transform.Find("N.C").gameObject.SetActive(false);
@@ -46,7 +50,6 @@ public class Game_manager : MonoBehaviour
             GameObject.Find("Canvass").transform.Find("Book_2").transform.Find("Image").transform.Find("N.C").gameObject.SetActive(true);
         }
     }
-
 
     public void asss()
     {

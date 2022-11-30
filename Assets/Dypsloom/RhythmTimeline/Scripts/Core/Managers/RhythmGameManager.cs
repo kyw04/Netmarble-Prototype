@@ -58,7 +58,7 @@ namespace Dypsloom.RhythmTimeline.Core.Managers
         private bool isGameOver;
         private bool isGameEnd;
         public bool startAwake = false;
-
+        public int lastStage = 1;
         private void Awake()
         {
             //Set this manager in the toolbox such that it may be found by other scripts easily.
@@ -200,7 +200,15 @@ namespace Dypsloom.RhythmTimeline.Core.Managers
         public void QuitGame()
         {
             CurtainAni.instance.Open();
-            SceneManager.LoadScene("Scenes/InGame/Test_main");
+
+            if (PlayerPrefs.GetInt("SelectedStage") == lastStage)
+            {
+                SceneManager.LoadScene("Scenes/InGame/end");
+            }
+            else
+            {
+                SceneManager.LoadScene("Scenes/InGame/Test_main");
+            }
         }
 
         private void Update()

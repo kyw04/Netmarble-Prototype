@@ -15,6 +15,5 @@ public class chea : MonoBehaviour
     void Update()
     {
         GameObject.Find("Game_manager").GetComponent<Game_manager>().lvss();
-
     }
 }

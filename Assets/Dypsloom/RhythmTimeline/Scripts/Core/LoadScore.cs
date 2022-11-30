@@ -13,8 +13,7 @@ public class LoadScore : MonoBehaviour
     private RhythmGameManager gameManager;
     private RhythmTimelineAsset[] stage_list;
     private int index = 0;
-    public string SceneToLoad;
-    
+    private int highIndex = 0;
 
 
     private void Start()
@@ -24,6 +23,9 @@ public class LoadScore : MonoBehaviour
         
         if (PlayerPrefs.HasKey("SelectedStage"))
             index = PlayerPrefs.GetInt("SelectedStage");
+
+        if (PlayerPrefs.HasKey("LV"))
+            highIndex = PlayerPrefs.GetInt("LV");
     }
 
     public void ChangeStage(int value)
@@ -34,7 +36,7 @@ public class LoadScore : MonoBehaviour
     public void SelectStage()
     {
         PlayerPrefs.SetInt("SelectedStage", index);
-        Debug.Log(index);
+        Debug.Log(stage_list[index].HighScore.FullScore);
 
         if (stage_list[index].HighScore == null)
         {
@@ -44,15 +46,14 @@ public class LoadScore : MonoBehaviour
 
         if (stage_list[index].HighScore.FullScore > 0)// 점수가 있을 경우
         {
+            Debug.Log("점수 출력");
             m_HighScoreUi.transform.parent.gameObject.SetActive(true);
             m_HighScoreUi.SetScoreData(stage_list[index].HighScore);
-            if (PlayerPrefs.GetInt("End") > 0)
+
+            if (index + 1 > highIndex)
             {
-                SceneToLoad = "Test_main";
-            }
-            else
-            {
-                SceneToLoad = "end";
+                highIndex = index + 1;
+                PlayerPrefs.SetInt("LV", highIndex);
             }
         }
         else
