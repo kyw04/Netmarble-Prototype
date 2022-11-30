@@ -4424,6 +4424,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_HighScoreUi: {fileID: 1408634729}
+  SceneToLoad: end
 --- !u!1 &1677776992
 GameObject:
   m_ObjectHideFlags: 0
