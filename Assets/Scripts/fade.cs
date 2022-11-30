@@ -8,12 +8,19 @@ public class fade : MonoBehaviour
 {
     public Image image;
     public Button button;
+    Animator anim;
+
+    void Start()
+    {
+        anim = image.GetComponent<Animator>();
+    }
 
     public void Fadebutton()
     {
-        button.gameObject.SetActive(false);
-        StartCoroutine(Fadecin());
+        //button.gameObject.SetActive(false);
+        //StartCoroutine(Fadecin());
         Invoke("startmain", 2f);
+        anim.SetTrigger("fadein");
     }
     public void Fadeoutbutton()
     {
