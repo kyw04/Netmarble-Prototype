@@ -357,6 +357,7 @@ MonoBehaviour:
   m_EndSongButton: {fileID: 0}
   m_QuitButton: {fileID: 0}
   startAwake: 1
+  lastStage: 1
 --- !u!1 &47457771
 GameObject:
   m_ObjectHideFlags: 0
@@ -1350,7 +1351,7 @@ MonoBehaviour:
       - m_Target: {fileID: 17763277}
         m_TargetAssemblyTypeName: Dypsloom.RhythmTimeline.Core.Managers.RhythmGameManager,
           Dypsloom.RhythmTimeline
-        m_MethodName: QuitGame
+        m_MethodName: QuitGame2
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -18253,7 +18254,7 @@ MonoBehaviour:
       - m_Target: {fileID: 17763277}
         m_TargetAssemblyTypeName: Dypsloom.RhythmTimeline.Core.Managers.RhythmGameManager,
           Dypsloom.RhythmTimeline
-        m_MethodName: QuitGame
+        m_MethodName: QuitGame2
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

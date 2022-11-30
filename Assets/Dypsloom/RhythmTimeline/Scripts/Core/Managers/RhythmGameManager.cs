@@ -196,18 +196,28 @@ namespace Dypsloom.RhythmTimeline.Core.Managers
             m_RhythmDirector.EndSong();
             UnPause();
         }
-        
+        public void QuitGame2()
+        {
+            var scoreManager = Toolbox.Get<ScoreManager>();
+            scoreManager.Dead();
+            SceneManager.LoadScene("Scenes/InGame/Test_main");
+        }
+
         public void QuitGame()
         {
             CurtainAni.instance.Open();
 
-            if (PlayerPrefs.GetInt("SelectedStage") == lastStage)
+            int end = 0;
+            if (PlayerPrefs.HasKey("End"))
+                end = PlayerPrefs.GetInt("End");
+
+            if (PlayerPrefs.GetInt("SelectedStage") != lastStage || end == 1)
             {
-                SceneManager.LoadScene("Scenes/InGame/end");
+                SceneManager.LoadScene("Scenes/InGame/Test_main");
             }
             else
             {
-                SceneManager.LoadScene("Scenes/InGame/Test_main");
+                SceneManager.LoadScene("Scenes/InGame/end");
             }
         }
 
